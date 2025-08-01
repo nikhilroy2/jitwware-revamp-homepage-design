@@ -1,0 +1,1460 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jitware | Premium Webdesign, SEO & AI-oplossingen</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Kalam:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #f9fafb;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .premium-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+        }
+
+        .hover-scale {
+            transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55), box-shadow 0.4s ease;
+        }
+
+        .hover-scale:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-card:hover .service-icon {
+            transform: rotate(15deg) scale(1.2);
+        }
+
+        .service-icon {
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 1.5rem;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-container img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.95;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes subtleFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        @keyframes gentlePulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        @keyframes minimalWave {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-5px) rotate(1deg); }
+        }
+
+        .animate-fade-in {
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        .animate-subtle-float {
+            animation: subtleFloat 4s ease-in-out infinite;
+        }
+
+        .animate-gentle-pulse {
+            animation: gentlePulse 3s ease-in-out infinite;
+        }
+
+        .animate-minimal-wave {
+            animation: minimalWave 6s ease-in-out infinite;
+        }
+
+        .handwriting {
+            font-family: 'Kalam', cursive;
+            overflow: hidden;
+            white-space: nowrap;
+            animation: handwriting 2s steps(40) forwards;
+        }
+
+        @keyframes handwriting {
+            0% { width: 0; opacity: 0; }
+            50% { opacity: 1; }
+            100% { width: 100%; }
+        }
+
+        .logo-hover {
+            transition: all 0.4s ease;
+            opacity: 0.85;
+        }
+
+        .logo-hover:hover {
+            opacity: 1;
+            transform: translateY(-4px);
+        }
+
+        .testimonial-card {
+            transition: all 0.5s ease;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+            border-radius: 1.5rem;
+            background: linear-gradient(145deg, #ffffff, #f1f5f9);
+        }
+
+        .testimonial-card:hover {
+            box-shadow: 0 25px 60px rgba(79, 70, 229, 0.2);
+            transform: translateY(-10px);
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(to right, #667eea, #764ba2);
+            transition: width 0.4s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .wave-divider {
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            opacity: 0.6;
+        }
+
+        .wave-divider svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 80px;
+        }
+
+        .wave-divider path {
+            animation: minimalWave 8s ease-in-out infinite;
+        }
+
+        .wave-divider .shape-fill {
+            fill: #f9fafb;
+        }
+
+        .wave-divider-top {
+            position: absolute;
+            top: -1px;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+            opacity: 0.6;
+        }
+
+        .wave-divider-top svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 80px;
+        }
+
+        .wave-divider-top path {
+            animation: minimalWave 8s ease-in-out infinite reverse;
+        }
+
+        .wave-divider-top .shape-fill {
+            fill: #f9fafb;
+        }
+
+        .count-up {
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .count-up.visible {
+            opacity: 1;
+        }
+
+        .form-input {
+            transition: all 0.3s ease;
+            border-radius: 0.75rem;
+            background: #f8fafc;
+        }
+
+        .form-input:focus {
+            background: #ffffff;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+        }
+
+        .slider-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slider-item {
+            transition: all 0.6s ease;
+        }
+
+        .slider-item:not(.active) {
+            opacity: 0;
+            transform: translateX(100%);
+            position: absolute;
+        }
+
+        .slider-item.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .shape-overlay {
+            position: absolute;
+            opacity: 0.05;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .shape-blob {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(102, 126, 234, 0.2) 0%, rgba(102, 126, 234, 0) 70%);
+            animation: subtleFloat 8s ease-in-out infinite;
+        }
+
+        .shape-geo {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(45deg, rgba(118, 75, 162, 0.1), rgba(102, 126, 234, 0));
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            animation: gentlePulse 6s ease-in-out infinite;
+        }
+
+        .parallax-shape {
+            position: absolute;
+            will-change: transform;
+        }
+
+        .premium-shadow {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.1);
+        }
+
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hero-cta {
+            background: linear-gradient(135deg, #ffffff, #f8fafc);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-cta:hover {
+            background: linear-gradient(135deg, #f8fafc, #ffffff);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Additional Design Shapes */
+        .shape-star {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            animation: gentlePulse 8s ease-in-out infinite;
+        }
+
+        .shape-circle {
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, rgba(102, 126, 234, 0.15) 0%, rgba(102, 126, 234, 0) 70%);
+            border-radius: 50%;
+            animation: subtleFloat 6s ease-in-out infinite;
+        }
+
+        .shape-triangle {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, rgba(118, 75, 162, 0.1), rgba(102, 126, 234, 0.1));
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            animation: gentlePulse 7s ease-in-out infinite;
+        }
+
+        .shape-diamond {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(45deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            animation: subtleFloat 9s ease-in-out infinite;
+        }
+
+        /* Header with subtle color */
+        .header-gradient {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%);
+            border-bottom: 1px solid rgba(102, 126, 234, 0.1);
+        }
+
+        /* Section title with icon styling */
+        .section-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-title-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Enhanced form styling */
+        .form-label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-label-icon {
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.75rem;
+        }
+
+        /* Enhanced slider styling */
+        .enhanced-slider {
+            background: linear-gradient(135deg, #f8fafc, #ffffff);
+            border: 1px solid rgba(102, 126, 234, 0.1);
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            background: rgba(102, 126, 234, 0.3);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .slider-dot.active {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="header-gradient shadow-xl sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="text-4xl font-extrabold gradient-text handwriting">Jitware</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#diensten" class="nav-link text-gray-800 hover:text-indigo-600 font-semibold text-lg">
+                        <i class="fas fa-cogs text-sm"></i>
+                        Diensten
+                    </a>
+                    <a href="#cases" class="nav-link text-gray-800 hover:text-indigo-600 font-semibold text-lg">
+                        <i class="fas fa-trophy text-sm"></i>
+                        Cases
+                    </a>
+                    <a href="/blog" class="nav-link text-gray-800 hover:text-indigo-600 font-semibold text-lg">
+                        <i class="fas fa-blog text-sm"></i>
+                        Blog
+                    </a>
+                    <a href="#over-ons" class="nav-link text-gray-800 hover:text-indigo-600 font-semibold text-lg">
+                        <i class="fas fa-users text-sm"></i>
+                        Over ons
+                    </a>
+                    <a href="#contact" class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-3 rounded-full font-semibold text-lg hover:bg-indigo-700 transition hover-scale shadow-lg">
+                        <i class="fas fa-paper-plane mr-2"></i>
+                        Contact
+                    </a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-800 focus:outline-none">
+                        <i class="fas fa-bars text-3xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden flex-col space-y-4 px-6 py-6 bg-white shadow-2xl rounded-b-2xl">
+            <a href="#diensten" class="text-gray-800 hover:text-indigo-600 font-semibold text-lg flex items-center">
+                <i class="fas fa-cogs mr-3"></i>
+                Diensten
+            </a>
+            <a href="#cases" class="text-gray-800 hover:text-indigo-600 font-semibold text-lg flex items-center">
+                <i class="fas fa-trophy mr-3"></i>
+                Cases
+            </a>
+            <a href="/blog" class="text-gray-800 hover:text-indigo-600 font-semibold text-lg flex items-center">
+                <i class="fas fa-blog mr-3"></i>
+                Blog
+            </a>
+            <a href="#over-ons" class="text-gray-800 hover:text-indigo-600 font-semibold text-lg flex items-center">
+                <i class="fas fa-users mr-3"></i>
+                Over ons
+            </a>
+            <a href="#contact" class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-3 rounded-full font-semibold text-center hover:bg-indigo-700 transition hover-scale shadow-md">
+                <i class="fas fa-paper-plane mr-2"></i>
+                Contact
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="premium-gradient text-white py-32 md:py-48 relative overflow-hidden">
+        <div class="shape-overlay shape-blob top-20 left-10"></div>
+        <div class="shape-overlay shape-geo bottom-20 right-20"></div>
+        <div class="shape-overlay shape-star top-40 right-40"></div>
+        <div class="shape-overlay shape-circle bottom-40 left-40"></div>
+        <div class="shape-overlay shape-triangle top-60 left-60"></div>
+        <div class="shape-overlay shape-diamond bottom-60 right-60"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="md:flex items-center">
+                <div class="md:w-1/2 mb-12 md:mb-0 animate-fade-in">
+                    <div class="inline-flex items-center bg-white bg-opacity-20 backdrop-blur-sm text-white px-6 py-3 rounded-full shadow-lg mb-6">
+                        <i class="fas fa-star mr-2 text-yellow-300"></i>
+                        <span class="font-semibold">Premium Digital Solutions</span>
+                    </div>
+                    <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-8 text-white handwriting animate-subtle-float">
+                        Digitale excellentie voor jouw groei
+                    </h1>
+                    <p class="text-xl md:text-2xl mb-10 opacity-95 leading-relaxed">
+                        Cutting-edge webdesign, SEO en AI om jouw bedrijf te laten schitteren in de digitale wereld.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-6">
+                        <a href="#contact" class="hero-cta text-indigo-600 px-10 py-5 rounded-full font-semibold text-center transition hover-scale shadow-xl animate-gentle-pulse">
+                            <i class="fas fa-chart-line mr-3"></i>
+                            Gratis Analyse
+                        </a>
+                        <a href="#cases" class="bg-transparent border-2 border-white px-10 py-5 rounded-full font-semibold text-center hover:bg-white hover:text-indigo-600 transition hover-scale animate-minimal-wave">
+                            <i class="fas fa-eye mr-3"></i>
+                            Succescases
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 md:pl-12 animate-fade-in" style="animation-delay: 0.3s;">
+                    <div class="bg-white rounded-3xl shadow-2xl overflow-hidden hover-scale animate-subtle-float">
+                        <div class="video-container">
+                            <img src="bestanden/performance-dashboard-2.png" alt="Performance dashboard">
+                        </div>
+                        <div class="p-8 bg-gradient-to-r from-gray-50 to-white">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <h3 class="font-bold text-gray-800 text-xl">Klantendashboard</h3>
+                                    <p class="text-sm text-gray-600">Resultaten laatste 6 maanden</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-green-600 font-bold text-2xl">+247%</p>
+                                    <p class="text-xs text-gray-600">Organisch verkeer</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wave-divider">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path class="shape-fill" d="M0,96L48,85.3C96,75,192,53,288,64C384,75,480,117,576,128C672,139,768,117,864,90.7C960,64,1056,32,1152,32C1248,32,1344,64,1392,80L1440,96L1440,320L0,320Z"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Social Proof Section -->
+    <section class="py-24 bg-gradient-to-b from-white to-gray-50 relative">
+        <div class="wave-divider-top">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path class="shape-fill" d="M0,96L48,85.3C96,75,192,53,288,64C384,75,480,117,576,128C672,139,768,117,864,90.7C960,64,1056,32,1152,32C1248,32,1344,64,1392,80L1440,96L1440,320L0,320Z"></path>
+            </svg>
+        </div>
+        <div class="shape-overlay shape-blob top-40 right-20"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 animate-fade-in">
+                <div class="inline-flex items-center bg-indigo-100 text-indigo-800 px-8 py-4 rounded-full shadow-lg">
+                    <i class="fas fa-star mr-2 text-yellow-400 text-xl"></i>
+                    <span class="font-bold text-lg">4.9/5 uit 45+ reviews</span>
+                    <i class="fas fa-heart ml-2 text-red-400"></i>
+                </div>
+            </div>
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12 px-4 animate-fade-in" style="animation-delay: 0.2s;">
+                <div class="logo-hover"><a href="https://www.dedoncker.be" class="text-gray-800 text-lg font-semibold hover:text-indigo-600 transition-colors">De Doncker</a></div>
+                <div class="logo-hover"><a href="https://www.ds-cleaning.be" class="text-gray-800 text-lg font-semibold hover:text-indigo-600 transition-colors">DS Cleaning</a></div>
+                <div class="logo-hover"><a href="https://www.vissershofmere.be" class="text-gray-800 text-lg font-semibold hover:text-indigo-600 transition-colors">Vissershof</a></div>
+                <div class="logo-hover"><a href="https://www.otentik-wellness.be" class="text-gray-800 text-lg font-semibold hover:text-indigo-600 transition-colors">Otentik Wellness</a></div>
+                <div class="logo-hover"><a href="https://www.bvconell.be/" class="text-gray-800 text-lg font-semibold hover:text-indigo-600 transition-colors">Conell BV</a></div>
+            </div>
+            <div class="mt-20 max-w-4xl mx-auto animate-fade-in slider-container" style="animation-delay: 0.3s;">
+                <div class="slider-item active testimonial-card bg-white p-10 relative">
+                    <div class="absolute -top-6 -left-6 w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center">
+                        <i class="fas fa-quote-left text-indigo-500 text-xl"></i>
+                    </div>
+                    <div class="flex flex-col md:flex-row items-start gap-6">
+                        <img class="photo w-16 h-16 rounded-full object-cover ring-4 ring-indigo-100 shadow-md" src="bestanden/klanten/reviews/ann.png" alt="Ann L. - Otentik Wellness">
+                        <div class="flex-1">
+                            <div class="flex mb-4">
+                                <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                            </div>
+                            <p class="text-gray-600 mb-4 italic text-lg leading-relaxed">
+                                "Jens is een zeer geduldige en hulpvaardige kerel om mee samen te werken. Niets is teveel voor hem. Altijd bereikbaar en werkt snel! Topkerel! Bedankt Jens!"
+                                <span class="block mt-3 text-indigo-500 font-semibold handwriting">💙 Fan van Jens 💙</span>
+                            </p>
+                            <div class="flex items-center">
+                                <div class="h-px bg-gray-200 flex-1 mr-4"></div>
+                                <p class="font-bold text-gray-800">Ann L.</p>
+                                <span class="mx-2 text-gray-400">|</span>
+                                <p class="text-gray-600">Otentik Wellness</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex justify-center mt-8 space-x-3">
+                    <button class="slider-dot w-4 h-4 rounded-full bg-indigo-400 hover:bg-indigo-500 transition"></button>
+                    <button class="slider-dot w-4 h-4 rounded-full bg-indigo-200 hover:bg-indigo-300 transition"></button>
+                    <button class="slider-dot w-4 h-4 rounded-full bg-indigo-200 hover:bg-indigo-300 transition"></button>
+                </div>
+            </div>
+        </div>
+        <div class="wave-divider">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path class="shape-fill" d="M0,96L48,85.3C96,75,192,53,288,64C384,75,480,117,576,128C672,139,768,117,864,90.7C960,64,1056,32,1152,32C1248,32,1344,64,1392,80L1440,96L1440,320L0,320Z"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Expertises -->
+    <section id="diensten" class="py-24 bg-gray-50 relative">
+        <div class="wave-divider-top">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path class="shape-fill" d="M0,96L48,85.3C96,75,192,53,288,64C384,75,480,117,576,128C672,139,768,117,864,90.7C960,64,1056,32,1152,32C1248,32,1344,64,1392,80L1440,96L1440,320L0,320Z"></path>
+            </svg>
+        </div>
+        <div class="shape-overlay shape-blob top-40 left-20"></div>
+        <div class="shape-overlay shape-geo bottom-20 right-20"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 animate-fade-in">
+                <div class="section-title">
+                    <div class="section-title-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 handwriting">Onze Expertises</h2>
+                </div>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Op maat gemaakte oplossingen voor jouw digitale succes.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="service-card bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition animate-fade-in animate-subtle-float">
+                    <div class="p-8">
+                        <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-6">
+                            <i class="fas fa-search service-icon text-indigo-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">SEO & Webdesign</h3>
+                        <p class="text-gray-600 mb-6">Geoptimaliseerde websites die converteren en gevonden worden.</p>
+                        <a href="#" class="text-indigo-600 font-semibold inline-flex items-center hover:text-indigo-800 transition">
+                            Meer over SEO & Webdesign
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                    <div class="bg-gray-50 px-8 py-4">
+                        <ul class="space-y-3">
+                            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i>Technische SEO-audit</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i>Conversie-optimalisatie</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i>Responsief design</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="service-card bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition animate-fade-in animate-subtle-float" style="animation-delay: 0.1s;">
+                    <div class="p-8">
+                        <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-6">
+                            <i class="fas fa-video service-icon text-purple-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Video & Grafisch Ontwerp</h3>
+                        <p class="text-gray-600 mb-6">Visueel aantrekkelijke content voor jouw merk.</p>
+                        <a href="#" class="text-purple-600 font-semibold inline-flex items-center hover:text-purple-800 transition">
+                            Ontdek Video & Design
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                    <div class="bg-gray-50 px-8 py-4">
+                        <ul class="space-y-3">
+                            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i>Bedrijfsvideo's</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i>Logo & huisstijl</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i>Social media content</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="service-card bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition animate-fade-in animate-subtle-float" style="animation-delay: 0.2s;">
+                    <div class="p-8">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+                            <i class="fas fa-robot service-icon text-blue-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">AI-Oplossingen</h3>
+                        <p class="text-gray-600 mb-6">Automatisering en innovatie met AI.</p>
+                        <a href="https://www.jitware.be/tools/" class="text-blue-600 font-semibold inline-flex items-center hover:text-blue-800 transition">
+                            Verken AI-Tools
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                    <div class="bg-gray-50 px-8 py-4">
+                        <ul class="space-y-3">
+                            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i>AI-data-analyse</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i>Contentgeneratie</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i>GEO & SGE</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wave-divider">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path class="shape-fill" d="M0,96L48,85.3C96,75,192,53,288,64C384,75,480,117,576,128C672,139,768,117,864,90.7C960,64,1056,32,1152,32C1248,32,1344,64,1392,80L1440,96L1440,320L0,320Z"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Results -->
+    <section class="py-24 bg-gradient-to-r from-indigo-600 to-purple-600 text-white relative">
+        <div class="wave-divider-top">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path class="shape-fill" d="M0,96L48,85.3C96,75,192,53,288,64C384,75,480,117,576,128C672,139,768,117,864,90.7C960,64,1056,32,1152,32C1248,32,1344,64,1392,80L1440,96L1440,320L0,320Z"></path>
+            </svg>
+        </div>
+        <div class="shape-overlay shape-blob bottom-40 right-20"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 animate-fade-in">
+                <div class="section-title">
+                    <div class="section-title-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-extrabold handwriting">Impactvolle Resultaten</h2>
+                </div>
+                <p class="text-xl opacity-90 max-w-3xl mx-auto">Jouw groei is onze missie.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-effect p-8 rounded-2xl backdrop-blur-lg hover-scale count-up animate-gentle-pulse">
+                    <div class="text-5xl font-extrabold mb-4 count-up-number" data-target="75">0%</div>
+                    <h3 class="text-xl font-semibold mb-3">Meer Bezoekers</h3>
+                    <p class="opacity-90">Gemiddelde stijging in organisch verkeer binnen 6 maanden.</p>
+                </div>
+                <div class="glass-effect p-8 rounded-2xl backdrop-blur-lg hover-scale count-up animate-gentle-pulse" style="animation-delay: 0.1s;">
+                    <div class="text-5xl font-extrabold mb-4 count-up-number" data-target="3">0</div>
+                    <h3 class="text-xl font-semibold mb-3">Google Topposities</h3>
+                    <p class="opacity-90">Van pagina 4 naar top 3 voor cruciale zoektermen.</p>
+                </div>
+                <div class="glass-effect p-8 rounded-2xl backdrop-blur-lg hover-scale count-up animate-gentle-pulse" style="animation-delay: 0.2s;">
+                    <div class="text-5xl font-extrabold mb-4 count-up-number" data-target="20">0%</div>
+                    <h3 class="text-xl font-semibold mb-3">Hogere Conversies</h3>
+                    <p class="opacity-90">Dankzij geoptimaliseerde landingspagina's.</p>
+                </div>
+            </div>
+        </div>
+        <div class="wave-divider">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path class="shape-fill" d="M0,96L48,85.3C96,75,192,53,288,64C384,75,480,117,576,128C672,139,768,117,864,90.7C960,64,1056,32,1152,32C1248,32,1344,64,1392,80L1440,96L1440,320L0,320Z"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Success Cases -->
+    <section id="cases" class="py-24 bg-white relative">
+        <div class="wave-divider-top">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path class="shape-fill" d="M0,96L48,85.3C96,75,192,53,288,64C384,75,480,117,576,128C672,139,768,117,864,90.7C960,64,1056,32,1152,32C1248,32,1344,64,1392,80L1440,96L1440,320L0,320Z"></path>
+            </svg>
+        </div>
+        <div class="shape-overlay shape-blob top-40 left-20"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 animate-fade-in">
+                <div class="section-title">
+                    <div class="section-title-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 handwriting">Succesverhalen</h2>
+                </div>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Echte resultaten voor echte bedrijven.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition hover-scale animate-subtle-float">
+                    <img src="cases/dakwerken-vandendriessche/homepagina-dakwerken-vandendriessche.PNG" alt="Case study" class="w-full h-48 object-cover opacity-90">
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <span class="bg-purple-100 text-purple-800 text-xs font-medium px-3 py-1 rounded-full">SEO + Website</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Dakwerken Van den Driessche</h3>
+                        <p class="text-gray-600 mb-4">Website + Lokale SEO-strategie</p>
+                        <p class="text-gray-700 mb-4"><strong>Van pagina 10 naar positie 2 in Google.</strong> Verdrievoudiging van aanvragen.</p>
+                        <a href="https://www.dakwerken-vandendriessche.be" target="_blank" class="text-purple-600 font-semibold inline-flex items-center hover:text-purple-800 transition">
+                            Bekijk Website
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                        <a href="/seo/positie-91-naar-positie-2" target="_blank" class="text-purple-600 font-semibold inline-flex items-center hover:text-purple-800 transition ml-4">
+                            Bekijk Case
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition hover-scale animate-subtle-float" style="animation-delay: 0.1s;">
+                    <img src="bestanden/klanten/dedoncker/dedoncker-website-homepagina.PNG" alt="Case study" class="w-full h-48 object-cover opacity-90">
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <span class="bg-purple-100 text-purple-800 text-xs font-medium px-3 py-1 rounded-full">SEO + Redesign</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">De Doncker</h3>
+                        <p class="text-gray-600 mb-4">Van verouderde naar moderne, geoptimaliseerde website.</p>
+                        <a href="https://www.dedoncker.be" target="_blank" class="text-purple-600 font-semibold inline-flex items-center hover:text-purple-800 transition">
+                            Bekijk Website
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                        <a href="/cases/website-seo-de-doncker" target="_blank" class="text-purple-600 font-semibold inline-flex items-center hover:text-purple-800 transition ml-4">
+                            Bekijk Case
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition hover-scale animate-subtle-float" style="animation-delay: 0.2s;">
+                    <img src="bestanden/klanten/otentik/otentik-website-homepagina.PNG" alt="Case study" class="w-full h-48 object-cover opacity-90">
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <span class="bg-indigo-100 text-indigo-800 text-xs font-medium px-3 py-1 rounded-full">SEO + Boekingsmodule</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Otentik Wellness</h3>
+                        <p class="text-gray-600 mb-4">+230% bezoekers in 3 maanden met SEO en reserveringssysteem.</p>
+                        <a href="https://www.otentik-wellness.be" target="_blank" class="text-indigo-600 font-semibold inline-flex items-center hover:text-indigo-800 transition">
+                            Bekijk Website
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center animate-fade-in">
+                <a href="#" class="inline-flex items-center px-8 py-4 border border-gray-300 text-base font-semibold rounded-full text-gray-700 bg-white hover:bg-gray-50 hover-scale shadow-lg animate-subtle-float">
+                    Alle Succescases
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+        <div class="wave-divider">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path class="shape-fill" d="M0,96L48,85.3C96,75,192,53,288,64C384,75,480,117,576,128C672,139,768,117,864,90.7C960,64,1056,32,1152,32C1248,32,1344,64,1392,80L1440,96L1440,320L0,320Z"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Blog -->
+    <section id="blog" class="py-24 bg-gray-50 relative">
+        <div class="wave-divider-top">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path class="shape-fill" d="M0,96L48,85.3C96,75,192,53,288,64C384,75,480,117,576,128C672,139,768,117,864,90.7C960,64,1056,32,1152,32C1248,32,1344,64,1392,80L1440,96L1440,320L0,320Z"></path>
+            </svg>
+        </div>
+        <div class="shape-overlay shape-blob top-40 right-20"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 animate-fade-in">
+                <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 handwriting">Inzichten & Trends</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Blijf voorop met onze digitale strategieën.</p>
+            </div>
+            <div id="blog-posts-container" class="grid md:grid-cols-3 gap-8 mb-12"></div>
+            <div class="text-center animate-fade-in">
+                <a href="/blog" class="inline-flex items-center px-8 py-4 border border-gray-300 text-base font-semibold rounded-full text-gray-700 bg-white hover:bg-gray-50 hover-scale shadow-lg animate-subtle-float">
+                    Alle Blogs
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+        <div class="wave-divider">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path class="shape-fill" d="M0,96L48,85.3C96,75,192,53,288,64C384,75,480,117,576,128C672,139,768,117,864,90.7C960,64,1056,32,1152,32C1248,32,1344,64,1392,80L1440,96L1440,320L0,320Z"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- AI Section -->
+    <section class="py-24 bg-white relative">
+        <div class="wave-divider-top">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path class="shape-fill" d="M0,96L48,85.3C96,75,192,53,288,64C384,75,480,117,576,128C672,139,768,117,864,90.7C960,64,1056,32,1152,32C1248,32,1344,64,1392,80L1440,96L1440,320L0,320Z"></path>
+            </svg>
+        </div>
+        <div class="shape-overlay shape-blob bottom-40 left-20"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="md:grid md:grid-cols-2 md:gap-12 items-start">
+                <div class="mb-12 md:mb-0 animate-fade-in">
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 handwriting">Slimmer met AI</h2>
+                    <p class="text-xl text-gray-600 mb-8">Automatiseer en optimaliseer met onze AI-oplossingen.</p>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start animate-subtle-float">
+                            <div class="flex-shrink-0 bg-blue-100 rounded-full p-3 mr-4">
+                                <i class="fas fa-comments text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-900 mb-1">AI Data-analyse</h3>
+                                <p class="text-gray-600">Inzichten uit jouw data voor betere beslissingen.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start animate-subtle-float" style="animation-delay: 0.1s;">
+                            <div class="flex-shrink-0 bg-blue-100 rounded-full p-3 mr-4">
+                                <i class="fas fa-pen-fancy text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-900 mb-1">AI-Copywriting</h3>
+                                <p class="text-gray-600">Geoptimaliseerde teksten die converteren.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start animate-subtle-float" style="animation-delay: 0.2s;">
+                            <div class="flex-shrink-0 bg-blue-100 rounded-full p-3 mr-4">
+                                <i class="fas fa-film text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-900 mb-1">AI-Optimalisaties</h3>
+                                <p class="text-gray-600">Identificeer en verbeter knelpunten.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-white border border-blue-200 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 animate-fade-in animate-subtle-float" style="animation-delay: 0.2s;">
+                    <div class="p-4 bg-gradient-to-r from-blue-100 to-blue-200 border-b border-blue-300 flex justify-between items-center">
+                        <p id="prompt-titel" class="text-base font-semibold text-blue-800">...</p>
+                        <button onclick="copyPrompt()" title="Copy to clipboard" class="text-blue-700 hover:text-white transition-colors bg-blue-100 px-4 py-2 rounded-lg border border-blue-300 hover:bg-blue-500 hover:border-blue-600">
+                            <i class="far fa-copy"></i> <span class="text-xs ml-1">COPY</span>
+                        </button>
+                    </div>
+                    <pre id="prompt-inhoud" class="p-4 text-blue-800 text-sm max-h-80 overflow-auto font-mono bg-blue-50 hover:bg-blue-100 transition cursor-pointer" onclick="copyPrompt()">...</pre>
+                    <div class="p-4 text-center border-t border-blue-200">
+                        <a href="ai/prompts/prompt-library" class="bg-blue-100 text-blue-700 px-6 py-3 rounded-full font-semibold inline-flex items-center border border-blue-300 hover:bg-blue-500 hover:text-white hover:border-blue-600 animate-gentle-pulse">
+                            Prompt Library
+                            <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                        </a>
+                        <p class="text-blue-600 text-sm mt-3">500+ prompts beschikbaar</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wave-divider">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path class="shape-fill" d="M0,96L48,85.3C96,75,192,53,288,64C384,75,480,117,576,128C672,139,768,117,864,90.7C960,64,1056,32,1152,32C1248,32,1344,64,1392,80L1440,96L1440,320L0,320Z"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Tools -->
+    <section id="tools" class="py-24 bg-gray-50 relative">
+        <div class="wave-divider-top">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path class="shape-fill" d="M0,96L48,85.3C96,75,192,53,288,64C384,75,480,117,576,128C672,139,768,117,864,90.7C960,64,1056,32,1152,32C1248,32,1344,64,1392,80L1440,96L1440,320L0,320Z"></path>
+            </svg>
+        </div>
+        <div class="shape-overlay shape-blob top-40 left-20"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 animate-fade-in">
+                <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 handwriting">Gratis Tools</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Boost je productiviteit met onze tools.</p>
+            </div>
+            <div id="tools-posts-container" class="grid md:grid-cols-3 gap-8 mb-12"></div>
+            <div class="text-center animate-fade-in">
+                <a href="/tools" class="inline-flex items-center px-8 py-4 border border-gray-300 text-base font-semibold rounded-full text-gray-700 bg-white hover:bg-gray-50 hover-scale shadow-lg animate-subtle-float">
+                    Alle Tools
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+        <div class="wave-divider">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path class="shape-fill" d="M0,96L48,85.3C96,75,192,53,288,64C384,75,480,117,576,128C672,139,768,117,864,90.7C960,64,1056,32,1152,32C1248,32,1344,64,1392,80L1440,96L1440,320L0,320Z"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Finances -->
+    <section id="finances" class="py-24 bg-white relative">
+        <div class="wave-divider-top">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path class="shape-fill" d="M0,96L48,85.3C96,75,192,53,288,64C384,75,480,117,576,128C672,139,768,117,864,90.7C960,64,1056,32,1152,32C1248,32,1344,64,1392,80L1440,96L1440,320L0,320Z"></path>
+            </svg>
+        </div>
+        <div class="shape-overlay shape-blob bottom-40 right-20"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 animate-fade-in">
+                <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 handwriting">Financiële Inzichten</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Blijf op de hoogte van trends en analyses.</p>
+            </div>
+            <div id="finances-posts-container" class="grid md:grid-cols-3 gap-8 mb-12"></div>
+            <div class="text-center animate-fade-in">
+                <a href="/financien" class="inline-flex items-center px-8 py-4 border border-gray-300 text-base font-semibold rounded-full text-gray-700 bg-white hover:bg-gray-50 hover-scale shadow-lg animate-subtle-float">
+                    Alle Artikelen
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+        <div class="wave-divider">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path class="shape-fill" d="M0,96L48,85.3C96,75,192,53,288,64C384,75,480,117,576,128C672,139,768,117,864,90.7C960,64,1056,32,1152,32C1248,32,1344,64,1392,80L1440,96L1440,320L0,320Z"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Kennis -->
+    <section id="kennis" class="py-24 bg-gray-50 relative">
+        <div class="wave-divider-top">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path class="shape-fill" d="M0,96L48,85.3C96,75,192,53,288,64C384,75,480,117,576,128C672,139,768,117,864,90.7C960,64,1056,32,1152,32C1248,32,1344,64,1392,80L1440,96L1440,320L0,320Z"></path>
+            </svg>
+        </div>
+        <div class="shape-overlay shape-blob top-40 left-20"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 animate-fade-in">
+                <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 handwriting">Kennis & Inzichten</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Duik in samenvattingen, verkooptechnieken en bedrijfsbeheer.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-10 mb-12">
+                <div id="kolom-samenvattingen"></div>
+                <div id="kolom-verkoop"></div>
+                <div id="kolom-bedrijfsvoeren"></div>
+            </div>
+        </div>
+        <div class="wave-divider">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path class="shape-fill" d="M0,96L48,85.3C96,75,192,53,288,64C384,75,480,117,576,128C672,139,768,117,864,90.7C960,64,1056,32,1152,32C1248,32,1344,64,1392,80L1440,96L1440,320L0,320Z"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- About Us -->
+    <section id="over-ons" class="py-24 bg-white relative">
+        <div class="wave-divider-top">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path class="shape-fill" d="M0,96L48,85.3C96,75,192,53,288,64C384,75,480,117,576,128C672,139,768,117,864,90.7C960,64,1056,32,1152,32C1248,32,1344,64,1392,80L1440,96L1440,320L0,320Z"></path>
+            </svg>
+        </div>
+        <div class="shape-overlay shape-blob bottom-40 right-20"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="md:flex items-center">
+                <div class="md:w-1/3 mb-12 md:mb-0 md:pr-12 animate-fade-in">
+                    <div class="relative animate-subtle-float">
+                        <img src="bestanden/jitware/jens-eigenaar-jitware.png" alt="Jitware team" class="rounded-2xl shadow-2xl opacity-90">
+                        <div class="absolute -bottom-6 -right-6 bg-white p-6 rounded-xl shadow-lg">
+                            <div class="flex items-center">
+                                <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                                    <i class="fas fa-user-tie text-indigo-600"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-gray-800">Jens Van den Eeckhout</p>
+                                    <p class="text-sm text-gray-600">Oprichter & SEO Expert</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-2/3 animate-fade-in" style="animation-delay: 0.2s;">
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 handwriting">Over Ons</h2>
+                    <p class="text-gray-600 mb-6 text-lg">Bij Jitware maken we jouw online succes mogelijk. Sinds 2021 combineren we creativiteit met data om jouw doelen te overtreffen.</p>
+                    <p class="text-gray-600 mb-8 text-lg">Met transparantie en samenwerking als kern, zijn we jouw partner in groei.</p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="/contact" class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-4 rounded-full font-semibold text-center hover:bg-indigo-700 transition hover-scale shadow-lg animate-gentle-pulse">Ontmoet Ons Team</a>
+                        <a href="/contact" class="bg-white border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-full font-semibold text-center hover:bg-gray-100 transition hover-scale shadow-md animate-subtle-float">
+                            <i class="fas fa-play-circle mr-2"></i>Contacteer Ons
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wave-divider">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path class="shape-fill" d="M0,96L48,85.3C96,75,192,53,288,64C384,75,480,117,576,128C672,139,768,117,864,90.7C960,64,1056,32,1152,32C1248,32,1344,64,1392,80L1440,96L1440,320L0,320Z"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-24 bg-gradient-to-r from-indigo-600 to-purple-600 text-white relative">
+        <div class="wave-divider-top">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path class="shape-fill" d="M0,96L48,85.3C96,75,192,53,288,64C384,75,480,117,576,128C672,139,768,117,864,90.7C960,64,1056,32,1152,32C1248,32,1344,64,1392,80L1440,96L1440,320L0,320Z"></path>
+            </svg>
+        </div>
+        <div class="shape-overlay shape-blob top-40 left-20"></div>
+        <div class="shape-overlay shape-geo bottom-20 right-20"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 animate-fade-in">
+                <h2 class="text-4xl md:text-5xl font-extrabold mb-4 handwriting">Klaar voor Groei?</h2>
+                <p class="text-xl opacity-90 max-w-3xl mx-auto">Laten we jouw succesverhaal schrijven.</p>
+            </div>
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden relative">
+                    <div class="shape-overlay shape-blob top-10 left-10" style="opacity: 0.05;"></div>
+                    <div class="md:flex">
+                        <div class="md:w-1/2 p-10 text-gray-900">
+                            <form action="https://api.web3forms.com/submit" method="POST">
+                                <input type="hidden" name="access_key" value="988965d3-e66c-4e18-8668-aadc7e44652e" />
+                                <input type="hidden" name="subject" value="Jitware homepagina contact" />
+                                <input type="hidden" name="from_name" value="Jitware" />
+                                <input type="hidden" name="redirect" value="https://jitware.be/bedankt.html" />
+                                <div class="mb-6">
+                                    <label for="name" class="block text-gray-700 font-semibold mb-2">Naam *</label>
+                                    <input type="text" name="name" id="name" class="form-input w-full px-4 py-3 border border-gray-300 focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600" required>
+                                </div>
+                                <div class="mb-6">
+                                    <label for="email" class="block text-gray-700 font-semibold mb-2">Email *</label>
+                                    <input type="email" id="email" class="form-input w-full px-4 py-3 border border-gray-300 focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600" required>
+                                </div>
+                                <div class="mb-6">
+                                    <label for="phone" class="block text-gray-700 font-semibold mb-2">Telefoon</label>
+                                    <input type="tel" name="phone" id="phone" class="form-input w-full px-4 py-3 border border-gray-300 focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600">
+                                </div>
+                                <div class="mb-6">
+                                    <label for="message" class="block text-gray-700 font-semibold mb-2">Hoe kunnen we je helpen? *</label>
+                                    <textarea id="message" name="message" rows="4" class="form-input w-full px-4 py-3 border border-gray-300 focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600" required></textarea>
+                                </div>
+                                <div class="flex flex-col sm:flex-row gap-4">
+                                    <button type="submit" class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-4 rounded-full font-semibold hover:bg-indigo-700 transition hover-scale shadow-lg animate-gentle-pulse">Strategiegesprek</button>
+                                    <button type="submit" class="bg-white border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition hover-scale shadow-md animate-subtle-float">Offerte Aanvragen</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="md:w-1/2 bg-indigo-700 p-10">
+                            <h3 class="text-2xl font-bold mb-6 handwriting">Neem Contact Op</h3>
+                            <div class="space-y-6">
+                                <div class="flex items-start animate-subtle-float">
+                                    <div class="flex-shrink-0 bg-indigo-600 rounded-full p-3 mr-4">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold mb-1">Adres</h4>
+                                        <p class="opacity-90">Prinsdaal 63, 9420 Erpe-Mere</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start animate-subtle-float" style="animation-delay: 0.1s;">
+                                    <div class="flex-shrink-0 bg-indigo-600 rounded-full p-3 mr-4">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold mb-1">Email</h4>
+                                        <p class="opacity-90">info@jitware.be</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start animate-subtle-float" style="animation-delay: 0.2s;">
+                                    <div class="flex-shrink-0 bg-indigo-600 rounded-full p-3 mr-4">
+                                        <i class="fas fa-phone-alt"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold mb-1">Telefoon</h4>
+                                        <p class="opacity-90">04 72 85 49 46</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-10">
+                                <h4 class="font-bold mb-4 handwriting">Volg Ons</h4>
+                                <div class="flex space-x-4">
+                                    <a href="https://www.linkedin.com/in/jensvandeneeckhout/" class="bg-indigo-600 w-12 h-12 rounded-full flex items-center justify-center hover:bg-indigo-500 transition hover-scale animate-gentle-pulse">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </a>
+                                    <a href="www.instagram.com/jitware" class="bg-indigo-600 w-12 h-12 rounded-full flex items-center justify-center hover:bg-indigo-500 transition hover-scale animate-gentle-pulse">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                    <a href="https://www.youtube.com/@Jitware_inc" class="bg-indigo-600 w-12 h-12 rounded-full flex items-center justify-center hover:bg-indigo-500 transition hover-scale animate-gentle-pulse">
+                                        <i class="fab fa-youtube"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function () {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Count-up animation
+        function countUp(element, target, suffix = '') {
+            let current = 0;
+            const increment = target / 50;
+            const interval = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(interval);
+                }
+                element.textContent = `${Math.round(current)}${suffix}`;
+            }, 20);
+        }
+
+        function handleScrollAnimations() {
+            const elements = document.querySelectorAll('.count-up');
+            elements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight * 0.8 && !el.classList.contains('visible')) {
+                    el.classList.add('visible');
+                    const numberEl = el.querySelector('.count-up-number');
+                    const target = parseInt(numberEl.dataset.target);
+                    const suffix = numberEl.textContent.includes('%') ? '%' : numberEl.textContent.includes('1-3') ? '' : '';
+                    countUp(numberEl, target, suffix);
+                }
+            });
+        }
+
+        window.addEventListener('scroll', handleScrollAnimations);
+
+        // Testimonial slider
+        document.addEventListener('DOMContentLoaded', function () {
+            const testimonials = [
+                {
+                    quote: "Jens is een zeer geduldige en hulpvaardige kerel om mee samen te werken. Niets is teveel voor hem. Altijd bereikbaar en werkt snel! Topkerel! Bedankt Jens!",
+                    author: "Ann L.",
+                    company: "Otentik Wellness",
+                    rating: 5,
+                    emoji: "💙 Fan van Jens 💙",
+                    image: "bestanden/klanten/reviews/ann.png"
+                },
+                {
+                    quote: "Uitzonderlijke service en aandacht voor detail. Jens heeft ons bedrijf geholpen met een nieuwe website en nieuwe klanten, alles op tijd en binnen budget.",
+                    author: "Sam V",
+                    company: "Conell BV",
+                    rating: 5,
+                    emoji: "🚀 Aanrader!",
+                    image: "bestanden/klanten/reviews/sam.jpg"
+                },
+                {
+                    quote: "Professionele aanpak en altijd bereid om zich extra in te zetten. Onze website is nu beter dan ooit dankzij Jens zijn expertise.",
+                    author: "Femke VDD",
+                    company: "Dakwerken Van den Driessche",
+                    rating: 5,
+                    emoji: "✨ Geweldig werk!",
+                    image: "bestanden/klanten/reviews/femke.jpg"
+                }
+            ];
+
+            let currentTestimonial = 0;
+            const sliderContainer = document.querySelector('.slider-container');
+            const dots = document.querySelectorAll('.slider-dot');
+
+              function updateTestimonial(index) {
+                const testimonial = testimonials[index];
+                const currentCard = sliderContainer.querySelector('.slider-item.active');
+                const newCard = document.createElement('div');
+                newCard.className = 'slider-item testimonial-card bg-white p-10 relative';
+                newCard.innerHTML = `
+                    <div class="absolute -top-6 -left-6 w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center">
+                        <i class="fas fa-quote-left text-indigo-500 text-xl"></i>
+                    </div>
+                    <div class="flex flex-col md:flex-row items-start gap-6">
+                        <img class="photo w-16 h-16 rounded-full object-cover ring-4 ring-indigo-100 shadow-md" src="${testimonial.image}" alt="${testimonial.author} - ${testimonial.company}">
+                        <div class="flex-1">
+                            <div class="flex mb-4">
+                                ${Array(5).fill().map((_, i) => `<i class="fas fa-star ${i < testimonial.rating ? 'text-yellow-400' : 'text-gray-300'} mr-1"></i>`).join('')}
+                            </div>
+                            <p class="text-gray-600 mb-4 italic text-lg leading-relaxed">
+                                "${testimonial.quote}"
+                                <span class="block mt-3 text-indigo-500 font-semibold handwriting">${testimonial.emoji}</span>
+                            </p>
+                            <div class="flex items-center">
+                                <div class="h-px bg-gray-200 flex-1 mr-4"></div>
+                                <p class="font-bold text-gray-800">${testimonial.author}</p>
+                                <span class="mx-2 text-gray-400">|</span>
+                                <p class="text-gray-600">${testimonial.company}</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                sliderContainer.appendChild(newCard);
+                setTimeout(() => {
+                    currentCard.classList.remove('active');
+                    newCard.classList.add('active');
+                    setTimeout(() => currentCard.remove(), 600);
+                    dots.forEach((dot, i) => {
+                        dot.classList.toggle('bg-indigo-400', i === index);
+                        dot.classList.toggle('bg-indigo-200', i !== index);
+                    });
+                }, 50);
+            }
+
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    if (index !== currentTestimonial) {
+                        currentTestimonial = index;
+                        updateTestimonial(currentTestimonial);
+                    }
+                });
+            });
+
+            setInterval(() => {
+                currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+                updateTestimonial(currentTestimonial);
+            }, 6000);
+        });
+
+        // Fetch and display blog
+
+// Fetch and display blog posts
+        fetch('blog/blogs.json')
+            .then(response => response.json())
+            .then(data => {
+                const latestBlogs = data.sort((a, b) => new Date(b.datum) - new Date(a.datum)).slice(0, 3);
+                const container = document.getElementById('blog-posts-container');
+                latestBlogs.forEach((blog, index) => {
+                    const postElement = document.createElement('article');
+                    postElement.className = `blog-card bg-white rounded-2xl shadow-lg overflow-hidden animate-fade-in`;
+                    postElement.style.animationDelay = `${index * 0.1}s`;
+                    let imageHtml = blog.foto ? `<div class="h-48 overflow-hidden"><img src="${blog.foto}" alt="${blog.titel}" class="w-full h-full object-cover opacity-90"></div>` : '';
+                    let tagsHtml = blog.tags?.length ? `<div class="flex flex-wrap gap-2 mt-3">${blog.tags.map(tag => `<span class="text-xs px-2 py-1 bg-gray-100 rounded-full text-gray-600">${tag}</span>`).join('')}</div>` : '';
+                    postElement.innerHTML = `
+                        <a href="${blog.url}">
+                            ${imageHtml}
+                            <div class="p-6">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h2 class="text-xl font-bold text-gray-800 hover:text-indigo-600 transition-colors">${blog.titel}</h2>
+                                    <span class="text-sm text-gray-500 whitespace-nowrap ml-2">${new Date(blog.datum).toLocaleDateString('nl-NL', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+                                </div>
+                                ${blog.beschrijving ? `<p class="text-gray-600 mt-2">${blog.beschrijving}</p>` : ''}
+                                ${tagsHtml}
+                                <div class="mt-4">
+                                    <span class="text-indigo-600 font-semibold hover:text-indigo-800 transition-colors inline-flex items-center">
+                                        Lees meer <i class="fas fa-arrow-right ml-1 text-sm"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+                    `;
+                    container.appendChild(postElement);
+                });
+            })
+            .catch(error => console.error('Error loading blog posts:', error));
+
+        // Fetch and display tools
+        fetch('tools/tools.json')
+            .then(response => response.json())
+            .then(data => {
+                const latestTools = data.sort((a, b) => new Date(b.datum) - new Date(a.datum)).slice(0, 3);
+                const container = document.getElementById('tools-posts-container');
+                latestTools.forEach((tool, index) => {
+                    const toolElement = document.createElement('article');
+                    toolElement.className = `tool-card bg-white rounded-2xl shadow-lg overflow-hidden animate-fade-in`;
+                    toolElement.style.animationDelay = `${index * 0.1}s`;
+                    let imageHtml = tool.foto ? `<div class="h-48 overflow-hidden"><img src="${tool.foto}" alt="${tool.titel}" class="w-full h-full object-cover opacity-90"></div>` : '';
+                    let tagsHtml = tool.tags?.length ? `<div class="flex flex-wrap gap-2 mt-3">${tool.tags.map(tag => `<span class="text-xs px-2 py-1 bg-gray-100 rounded-full text-gray-600">${tag}</span>`).join('')}</div>` : '';
+                    toolElement.innerHTML = `
+                        <a href="${tool.url}">
+                            ${imageHtml}
+                            <div class="p-6">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h2 class="text-xl font-bold text-gray-800 hover:text-indigo-600 transition-colors">${tool.titel}</h2>
+                                    <span class="text-sm text-gray-500 whitespace-nowrap ml-2">${new Date(tool.datum).toLocaleDateString('nl-NL', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+                                </div>
+                                ${tool.beschrijving ? `<p class="text-gray-600 mt-2">${tool.beschrijving}</p>` : ''}
+                                ${tagsHtml}
+                                <div class="mt-4">
+                                    <span class="text-indigo-600 font-semibold hover:text-indigo-800 transition-colors inline-flex items-center">
+                                        Gebruik Tool <i class="fas fa-arrow-right ml-1 text-sm"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+                    `;
+                    container.appendChild(toolElement);
+                });
+            })
+            .catch(error => console.error('Error loading tools:', error));
+
+        // Fetch and display financial articles
+        fetch('financien/financien.json')
+            .then(response => response.json())
+            .then(data => {
+                const latestFinances = data.sort((a, b) => new Date(b.datum) - new Date(a.datum)).slice(0, 3);
+                const container = document.getElementById('finances-posts-container');
+                latestFinances.forEach((finance, index) => {
+                    const financeElement = document.createElement('article');
+                    financeElement.className = `finance-card bg-white rounded-2xl shadow-lg overflow-hidden animate-fade-in`;
+                    financeElement.style.animationDelay = `${index * 0.1}s`;
+                    let imageHtml = finance.foto ? `<div class="h-48 overflow-hidden"><img src="${finance.foto}" alt="${finance.titel}" class="w-full h-full object-cover opacity-90"></div>` : '';
+                    let tagsHtml = finance.tags?.length ? `<div class="flex flex-wrap gap-2 mt-3">${finance.tags.map(tag => `<span class="text-xs px-2 py-1 bg-gray-100 rounded-full text-gray-600">${tag}</span>`).join('')}</div>` : '';
+                    financeElement.innerHTML = `
+                        <a href="${finance.url}">
+                            ${imageHtml}
+                            <div class="p-6">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h2 class="text-xl font-bold text-gray-800 hover:text-indigo-600 transition-colors">${finance.titel}</h2>
+                                    <span class="text-sm text-gray-500 whitespace-nowrap ml-2">${new Date(finance.datum).toLocaleDateString('nl-NL', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+                                </div>
+                                ${finance.beschrijving ? `<p class="text-gray-600 mt-2">${finance.beschrijving}</p>` : ''}
+                                ${tagsHtml}
+                                <div class="mt-4">
+                                    <span class="text-indigo-600 font-semibold hover:text-indigo-800 transition-colors inline-flex items-center">
+                                        Lees meer <i class="fas fa-arrow-right ml-1 text-sm"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+                    `;
+                    container.appendChild(financeElement);
+                });
+            })
+            .catch(error => console.error('Error loading financial articles:', error));
+
+        // Prompt copy functionality
+        function copyPrompt() {
+            const promptContent = document.getElementById('prompt-inhoud').textContent;
+            navigator.clipboard.writeText(promptContent).then(() => {
+                const copyBtn = document.querySelector('[title="Copy to clipboard"]');
+                copyBtn.innerHTML = '<i class="fas fa-check text-green-400"></i> <span class="text-xs ml-1">COPIED!</span>';
+                setTimeout(() => {
+                    copyBtn.innerHTML = '<i class="far fa-copy"></i> <span class="text-xs ml-1">COPY</span>';
+                }, 2000);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('ai/prompts/prompts.json')
+                .then(res => res.json())
+                .then(data => {
+                    if (!data || data.length === 0) return;
+                    const laatste = data.sort((a, b) => new Date(b.datum) - new Date(a.datum))[0];
+                    document.getElementById('prompt-titel').textContent = laatste.titel;
+                    document.getElementById('prompt-inhoud').textContent = laatste.prompt;
+                })
+                .catch(error => console.error('Fout bij het laden van prompts:', error));
+        });
+
+        // Kennis section
+        const kolommen = [
+            {
+                id: 'kolom-samenvattingen',
+                json: 'boek-samenvattingen/boek-samenvattingen.json',
+                overzichtUrl: '/boek-samenvattingen',
+                overzichtLabel: 'Bekijk alle samenvattingen'
+            },
+            {
+                id: 'kolom-verkoop',
+                json: 'verkoop/verkoop.json',
+                overzichtUrl: '/verkoop',
+                overzichtLabel: 'Bekijk alle verkoopartikelen'
+            },
+            {
+                id: 'kolom-bedrijfsvoeren',
+                json: 'bedrijfsvoeren/bedrijfsvoeren.json',
+                overzichtUrl: '/bedrijfsvoeren',
+                overzichtLabel: 'Bekijk alle bedrijfsartikelen'
+            }
+        ];
+
+        kolommen.forEach(kolom => {
+            fetch(kolom.json)
+                .then(response => response.json())
+                .then(data => {
+                    const artikel = data.sort((a, b) => new Date(b.datum) - new Date(a.datum)).slice(0, 1)[0];
+                    const container = document.getElementById(kolom.id);
+                    const wrapper = document.createElement('article');
+                    wrapper.className = 'bg-white rounded-2xl shadow-lg p-6 flex flex-col justify-between animate-fade-in';
+                    let imageHtml = artikel.foto ? `<div class="h-48 overflow-hidden rounded-md mb-4"><img src="${artikel.foto}" alt="${artikel.titel}" class="w-full h-full object-cover opacity-90"></div>` : '';
+                    let tagsHtml = artikel.tags?.length ? `<div class="flex flex-wrap gap-2 mt-3">${artikel.tags.map(tag => `<span class="text-xs px-2 py-1 bg-gray-100 rounded-full text-gray-600">${tag}</span>`).join('')}</div>` : '';
+                    wrapper.innerHTML = `
+                        <a href="${artikel.url}">
+                            ${imageHtml}
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2 hover:text-indigo-600">${artikel.titel}</h3>
+                                ${artikel.beschrijving ? `<p class="text-gray-600">${artikel.beschrijving}</p>` : ''}
+                                ${tagsHtml}
+                                <div class="mt-4">
+                                    <span class="text-indigo-600 font-semibold hover:text-indigo-800 inline-flex items-center">
+                                        Lees meer <i class="fas fa-arrow-right ml-1 text-sm"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="mt-6">
+                            <a href="${kolom.overzichtUrl}" class="inline-flex items-center px-5 py-2 border border-gray-300 text-sm font-semibold rounded-full text-gray-700 bg-white hover:bg-gray-100 hover-scale">
+                                ${kolom.overzichtLabel}
+                                <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                            </a>
+                        </div>
+                    `;
+                    container.appendChild(wrapper);
+                })
+                .catch(error => console.error(`Error loading ${kolom.json}:`, error));
+        });
+    </script>
+</body>
+</html>

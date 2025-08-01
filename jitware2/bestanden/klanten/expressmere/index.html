@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frit Express - De lekkerste friet van de stad!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('frietjes2.png');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+            }
+            70% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 10px rgba(239, 68, 68, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+            }
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="font-sans">
+    <!-- Header -->
+    <header class="bg-yellow-500 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <i class="fas fa-utensils text-2xl mr-2"></i>
+                <h1 class="text-2xl font-bold">Frit Express</h1>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="#home" class="hover:text-yellow-200 font-medium">Home</a>
+                <a href="https://www.smartendr.be/kiosk/?qr=b974afc4-ff3e-4fa9-a7c9-5030c4b85e68#start">Menu</a>
+                <a href="https://www.facebook.com/profile.php?id=61573652519964" class="hover:text-yellow-200 font-medium">Over Ons</a>
+                <a href="tel:053430646" class="hover:text-yellow-200 font-medium">Contact</a>
+            </div>
+            <div class="md:hidden">
+                <button class="text-white focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero min-h-screen flex items-center justify-center text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Proef de lekkerste frietjes van de Erpe-Mere!</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">Vers gebakken, knapperig buiten en zacht vanbinnen. <ul>Enkel ter plaatse of afhaal</u>!</p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="tel:053430646" target="_blank" class="bg-yellow-500 hover:bg-red-600 text-white font-bold py-4 px-8 rounded-full text-lg pulse flex items-center justify-center gap-2">
+                    <i class="fas fa-phone"></i> Telefonisch Bestellen
+                </a>
+                <a href="https://www.smartendr.be/kiosk/?qr=b974afc4-ff3e-4fa9-a7c9-5030c4b85e68#start
+" class="bg-white hover:bg-gray-100 text-yellow-600 font-bold py-4 px-8 rounded-full text-lg flex items-center justify-center gap-2">
+                    <i class="fas fa-utensils"></i> Online Bestellen
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- USP Section -->
+    <!--
+    <section class="bg-gray-100 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <div class="text-yellow-500 text-4xl mb-4">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Snelle Levering</h3>
+                    <p class="text-gray-600">Wij garanderen eelevering binnen 30 minuten of uw geld terug!</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <div class="text-yellow-500 text-4xl mb-4">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Kwaliteitsingrediënten</h3>
+                    <p class="text-gray-600">Alleen de beste aardappelen en 100% plantaardige olie voor de perfecte friet.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <div class="text-yellow-500 text-4xl mb-4">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Huisgemaakte Sauzen</h3>
+                    <p class="text-gray-600">Onze speciale sauzen worden dagelijks vers bereid volgens eigen recept.</p>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+-->
+    <!-- Menu Section -->
+    <!--
+    <section id="menu" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Onze Populaire Keuzes</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+               
+                <div class="menu-item bg-gray-50 rounded-lg overflow-hidden shadow-lg transition-all duration-300">
+                    <div class="h-48 bg-yellow-100 flex items-center justify-center">
+                        <i class="fas fa-hamburger text-6xl text-yellow-500"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Friet Special</h3>
+                        <p class="text-gray-600 mb-4">Grote portie friet met 2 sauzen naar keuze en een frisdrank.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-yellow-600">€6,50</span>
+                            <button class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-full">
+                                Toevoegen
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="menu-item bg-gray-50 rounded-lg overflow-hidden shadow-lg transition-all duration-300">
+                    <div class="h-48 bg-yellow-100 flex items-center justify-center">
+                        <i class="fas fa-hotdog text-6xl text-yellow-500"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Friet XXL</h3>
+                        <p class="text-gray-600 mb-4">Extra grote portie friet met 3 sauzen en 2 snacks naar keuze.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-yellow-600">€9,90</span>
+                            <button class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-full">
+                                Toevoegen
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+               
+                <div class="menu-item bg-gray-50 rounded-lg overflow-hidden shadow-lg transition-all duration-300">
+                    <div class="h-48 bg-yellow-100 flex items-center justify-center">
+                        <i class="fas fa-cheese text-6xl text-yellow-500"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Friet Deluxe</h3>
+                        <p class="text-gray-600 mb-4">Grote portie friet met kaas, spek, ui en onze speciale saus.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-yellow-600">€8,25</span>
+                            <button class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-full">
+                                Toevoegen
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="https://www.ubereats.com/nl" target="_blank" class="bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-8 rounded-full text-lg inline-flex items-center gap-2">
+                    <i class="fas fa-shopping-basket"></i> BEKIJK HELE MENU & BESTEL
+                </a>
+            </div>
+        </div>
+    </section>
+-->
+
+    <!-- Testimonials -->
+    <section class="bg-yellow-50 py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Wat Onze Klanten Zeggen</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-500 text-2xl mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"Super lekkere frieten bij Frit Express Mere in Erpe-Mere
+
+Voor de eerste keer langs geweest bij Frit Express en ik moet zeggen. Lang geleden dat ik nog zo lekkere verse frieten heb gegeten.
+
+Vriendelijk personeel!
+
+Wij komen zeker terug"</p>
+                    <div class="flex items-center">
+                        <div class="bg-gray-300 rounded-full w-10 h-10 flex items-center justify-center mr-3">
+                            <i class="fas fa-user text-gray-500"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Jens Van den Eeckhout</h4>
+                            <p class="text-sm text-gray-500">Inwoner Bambrugge</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-500 text-2xl mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"Vandaag voor de eerste keer frietjes afgehaald, en het was top! De frietjes waren heerlijk knapperig en goed van smaak. Ook de bediening verdient een dikke pluim: snel, vlot en ontzettend vriendelijk. We voelden ons meteen welkom. De zaak zelf ziet er trouwens ook heel netjes en gezellig uit. Zeker een aanrader, en wij komen hier absoluut terug!"</p>
+                    <div class="flex items-center">
+                        <div class="bg-gray-300 rounded-full w-10 h-10 flex items-center justify-center mr-3">
+                            <i class="fas fa-user text-gray-500"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Nils Matthieu</h4>
+                            <p class="text-sm text-gray-500">Lokale bewoner</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-500 text-2xl mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"Beste frieten van de omgeving!! Lekker krokant en top gebakken. Stoofvleessaus super lekker en de snacks vakkundig gebakken. Toffe sfeer dankzij de uitbaters. Ook een zeer verzorgde en gezellige zaak met veel plaats en groot terras. Nieuwe vaste frituur gevonden! Bedankt :)"</p>
+                    <div class="flex items-center">
+                        <div class="bg-gray-300 rounded-full w-10 h-10 flex items-center justify-center mr-3">
+                            <i class="fas fa-user text-gray-500"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Laura De Vlam</h4>
+                            <p class="text-sm text-gray-500">Eerste keer klant</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Foto's van het gebouw -->
+<section class="py-16 bg-white">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-12">Een kijkje bij ons</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div class="overflow-hidden rounded-lg shadow-lg">
+        <img src="gebouw1.jpeg" alt="Foto van het gebouw 1" class="w-full h-64 object-cover">
+      </div>
+      <div class="overflow-hidden rounded-lg shadow-lg">
+        <img src="gebouw2.jpeg" alt="Foto van het gebouw 2" class="w-full h-64 object-cover">
+      </div>
+      <div class="overflow-hidden rounded-lg shadow-lg">
+        <img src="gebouw3.jpeg" alt="Foto van het gebouw 3" class="w-full h-64 object-cover">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="bg-yellow-50 mb-16">
+    <div class="container mx-auto px-8 py-4 pb-12">
+        <a href="tel:053430646" target="_blank" class="mb-6 bg-yellow-500 hover:bg-red-600 text-white font-bold py-4 px-8 rounded-full text-lg pulse flex items-center justify-center gap-2">
+            <i class="fas fa-bolt"></i> nu bestellen
+        </a>
+    </div>
+</section>
+
+
+    <!-- CTA Section -->
+    <!--
+    <section class="bg-yellow-500 text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-6">Klaar om te bestellen?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Download onze app voor exclusieve aanbiedingen en snellere bestellingen!</p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="#" class="bg-black hover:bg-gray-800 text-white font-bold py-3 px-6 rounded-lg flex items-center justify-center gap-2">
+                    <i class="fab fa-apple text-2xl"></i>
+                    <div class="text-left">
+                        <div class="text-xs">Download op de</div>
+                        <div class="text-lg">App Store</div>
+                    </div>
+                </a>
+                <a href="#" class="bg-black hover:bg-gray-800 text-white font-bold py-3 px-6 rounded-lg flex items-center justify-center gap-2">
+                    <i class="fab fa-google-play text-2xl"></i>
+                    <div class="text-left">
+                        <div class="text-xs">Download op</div>
+                        <div class="text-lg">Google Play</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+-->
+
+    <!-- Footer -->
+    <!--
+    <footer id="contact" class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <i class="fas fa-utensils mr-2"></i> Frit Express
+                    </h3>
+                    <p class="text-gray-400">De lekkerste friet van de stad, vers en snel bij u thuis bezorgd!</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Contact</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-2 text-yellow-500"></i>
+                            <span>Frietstraat 123, 1000 Brussel</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-2 text-yellow-500"></i>
+                            <span>012 34 56 78</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-2 text-yellow-500"></i>
+                            <span>info@fritexpressmere.be</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Openingstijden</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex justify-between">
+                            <span>Ma - Vr</span>
+                            <span>11:00 - 22:00</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Za - Zo</span>
+                            <span>12:00 - 23:00</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Volg Ons</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-gray-700 hover:bg-gray-600 w-10 h-10 rounded-full flex items-center justify-center">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="bg-gray-700 hover:bg-gray-600 w-10 h-10 rounded-full flex items-center justify-center">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="bg-gray-700 hover:bg-gray-600 w-10 h-10 rounded-full flex items-center justify-center">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                    <div class="mt-6">
+                        <a href="https://www.ubereats.com/nl" target="_blank" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-6 rounded-full text-sm inline-flex items-center gap-2">
+                            <i class="fas fa-bolt"></i> DIRECT BESTELLEN
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 Frit Express. Alle rechten voorbehouden.</p>
+            </div>
+        </div>
+    </footer>
+-->
+
+    <!-- Floating WhatsApp Button -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <a href="tel:053 43 06 46" target="_blank" class="bg-green-500 hover:bg-green-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg">
+            <i class="fas fa-phone text-2xl"></i>
+        </a>
+    </div>
+
+    <script>
+        // Simple animation for menu items when they come into view
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuItems = document.querySelectorAll('.menu-item');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            menuItems.forEach(item => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                item.style.transition = 'all 0.5s ease';
+                observer.observe(item);
+            });
+        });
+    </script>
+</body>
+</html>
