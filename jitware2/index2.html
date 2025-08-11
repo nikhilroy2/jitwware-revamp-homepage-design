@@ -1,0 +1,2569 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jitware | Premium Webdesign, SEO & AI-oplossingen</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Kalam:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #f9fafb;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .premium-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+        }
+
+        .hover-scale {
+            transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55), box-shadow 0.4s ease;
+        }
+
+        .hover-scale:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-card:hover .service-icon {
+            transform: rotate(15deg) scale(1.2);
+        }
+
+        .service-icon {
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 1.5rem;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-container img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.95;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes subtleFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-6px) rotate(0.5deg); }
+            50% { transform: translateY(-12px) rotate(1deg); }
+            75% { transform: translateY(-6px) rotate(0.5deg); }
+        }
+
+        @keyframes gentlePulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.9; transform: scale(1.02); }
+        }
+
+        @keyframes minimalWave {
+            0% { 
+                transform: translateY(0) rotate(0deg) scale(1);
+                opacity: 0.8;
+            }
+            25% { 
+                transform: translateY(-6px) rotate(0.3deg) scale(1.01);
+                opacity: 0.9;
+            }
+            50% { 
+                transform: translateY(-10px) rotate(0.6deg) scale(1.03);
+                opacity: 1;
+            }
+            75% { 
+                transform: translateY(-6px) rotate(0.3deg) scale(1.01);
+                opacity: 0.9;
+            }
+            100% { 
+                transform: translateY(0) rotate(0deg) scale(1);
+                opacity: 0.8;
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        .animate-subtle-float {
+            animation: subtleFloat 4s ease-in-out infinite;
+        }
+
+        .animate-gentle-pulse {
+            animation: gentlePulse 3s ease-in-out infinite;
+        }
+
+        .animate-minimal-wave {
+            animation: minimalWave 6s ease-in-out infinite;
+        }
+
+        .handwriting {
+            overflow: hidden;
+            white-space: nowrap;
+            animation: handwriting 2s steps(40) forwards;
+        }
+
+        @keyframes handwriting {
+            0% { width: 0; opacity: 0; }
+            50% { opacity: 1; }
+            100% { width: auto; }
+        }
+
+        .logo-hover {
+            transition: all 0.4s ease;
+            opacity: 0.85;
+        }
+
+        .logo-hover:hover {
+            opacity: 1;
+            transform: translateY(-4px);
+        }
+
+        .testimonial-card {
+            transition: all 0.5s ease;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+            border-radius: 1.5rem;
+            background: linear-gradient(145deg, #ffffff, #f1f5f9);
+        }
+
+        .testimonial-card:hover {
+            box-shadow: 0 25px 60px rgba(79, 70, 229, 0.2);
+            transform: translateY(-10px);
+        }
+
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1rem;
+            border-radius: 0.75rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: linear-gradient(to right, #667eea, #764ba2);
+            transition: width 0.4s ease;
+            border-radius: 1px;
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            transform: translateY(-2px);
+        }
+
+        .nav-link:hover::after {
+            width: 80%;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Enhanced Header Styling */
+        .header-gradient {
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.95) 0%, 
+                rgba(102, 126, 234, 0.1) 25%, 
+                rgba(118, 75, 162, 0.1) 50%, 
+                rgba(255, 255, 255, 0.95) 100%);
+            border-bottom: 1px solid rgba(102, 126, 234, 0.2);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 8px 32px rgba(102, 126, 234, 0.12);
+            position: relative;
+        }
+
+        .header-gradient::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(102, 126, 234, 0.05) 25%, 
+                rgba(118, 75, 162, 0.05) 50%, 
+                rgba(102, 126, 234, 0.05) 75%, 
+                transparent 100%);
+            z-index: -1;
+        }
+
+        .logo-enhanced {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+            position: relative;
+            z-index: 10;
+        }
+
+        .logo-enhanced::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -10px;
+            right: -10px;
+            bottom: -5px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            border-radius: 15px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo-enhanced:hover::after {
+            opacity: 1;
+        }
+
+        /* Enhanced Mobile Menu */
+        .mobile-menu-enhanced {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(102, 126, 234, 0.1);
+            border-radius: 20px;
+            margin: 1rem;
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.15);
+        }
+
+        /* Enhanced Shapes */
+        .shape-overlay {
+            position: absolute;
+            opacity: 0.08;
+            pointer-events: none;
+            z-index: 0;
+            filter: blur(1px);
+        }
+
+        .shape-blob {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(102, 126, 234, 0.3) 0%, rgba(102, 126, 234, 0) 70%);
+            animation: subtleFloat 8s ease-in-out infinite;
+            border-radius: 50% 40% 60% 30%;
+        }
+
+        .shape-geo {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(45deg, rgba(118, 75, 162, 0.2), rgba(102, 126, 234, 0));
+            clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+            animation: gentlePulse 6s ease-in-out infinite;
+        }
+
+        .shape-star {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, rgba(102, 126, 234, 0.15), rgba(118, 75, 162, 0.15));
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            animation: gentlePulse 8s ease-in-out infinite;
+        }
+
+        .shape-circle {
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(102, 126, 234, 0.2) 0%, rgba(102, 126, 234, 0) 70%);
+            animation: subtleFloat 6s ease-in-out infinite;
+        }
+
+        .shape-triangle {
+            background: linear-gradient(45deg, rgba(118, 75, 162, 0.15), rgba(102, 126, 234, 0.15));
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            animation: gentlePulse 7s ease-in-out infinite;
+        }
+
+        .shape-diamond {
+            background: linear-gradient(45deg, rgba(102, 126, 234, 0.15), rgba(118, 75, 162, 0.15));
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            animation: subtleFloat 9s ease-in-out infinite;
+        }
+
+        .shape-hexagon {
+            background: linear-gradient(60deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            clip-path: polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%);
+            animation: gentlePulse 10s ease-in-out infinite;
+        }
+
+        .shape-wave {
+            background: linear-gradient(45deg, rgba(102, 126, 234, 0.1), transparent);
+            border-radius: 0 0 50% 50%;
+            animation: minimalWave 12s ease-in-out infinite;
+        }
+
+        /* Enhanced Cards */
+        .enhanced-card {
+            background: linear-gradient(145deg, #ffffff, #f8fafc);
+            border: 1px solid rgba(102, 126, 234, 0.1);
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .enhanced-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.05), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        .enhanced-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.15);
+            border-color: rgba(102, 126, 234, 0.2);
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        /* Enhanced Sliders */
+        .swiper {
+            width: 100%;
+            padding: 2rem 0 4rem;
+            overflow: visible;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: linear-gradient(145deg, #ffffff, #f8fafc);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 2rem;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.5s ease;
+            border: 2px solid rgba(102, 126, 234, 0.05);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .swiper-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.02), rgba(118, 75, 162, 0.02));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .swiper-slide:hover::before {
+            opacity: 1;
+        }
+
+        .swiper-slide-active {
+            transform: scale(1.08);
+            box-shadow: 0 25px 50px rgba(102, 126, 234, 0.2);
+            border-color: rgba(102, 126, 234, 0.2);
+            z-index: 10;
+        }
+
+        .swiper-slide-prev,
+        .swiper-slide-next {
+            opacity: 0.8;
+            transform: scale(0.95);
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            width: 60px !important;
+            height: 60px !important;
+            background: linear-gradient(135deg, #667eea, #764ba2) !important;
+            border-radius: 50% !important;
+            color: white !important;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4) !important;
+            transition: all 0.3s ease !important;
+            border: 3px solid rgba(255, 255, 255, 0.2) !important;
+        }
+
+        .swiper-button-next:hover,
+        .swiper-button-prev:hover {
+            transform: scale(1.15) !important;
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.5) !important;
+            border-color: rgba(255, 255, 255, 0.4) !important;
+        }
+
+        .swiper-button-next::after,
+        .swiper-button-prev::after {
+            font-size: 1.4rem !important;
+            font-weight: bold !important;
+        }
+
+        .swiper-pagination-bullet {
+            width: 16px !important;
+            height: 16px !important;
+            background: rgba(102, 126, 234, 0.3) !important;
+            border-radius: 50% !important;
+            transition: all 0.3s ease !important;
+            border: 2px solid transparent !important;
+            margin: 0 8px !important;
+        }
+
+        .swiper-pagination-bullet:hover {
+            background: rgba(102, 126, 234, 0.6) !important;
+            transform: scale(1.2) !important;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: linear-gradient(135deg, #667eea, #764ba2) !important;
+            transform: scale(1.4) !important;
+            border-color: rgba(102, 126, 234, 0.3) !important;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.15) !important;
+        }
+
+        /* Enhanced Form Styling */
+        .form-enhanced {
+            background: linear-gradient(145deg, #ffffff, #f8fafc);
+            border-radius: 2rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(102, 126, 234, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .form-enhanced::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+        }
+
+        .form-input {
+            transition: all 0.3s ease;
+            border-radius: 1rem;
+            background: #f8fafc;
+            border: 2px solid rgba(102, 126, 234, 0.1);
+            padding: 1rem 1.25rem;
+            font-size: 1rem;
+        }
+
+        .form-input:focus {
+            background: #ffffff;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+            border-color: rgba(102, 126, 234, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .form-label {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
+        }
+
+        .form-label-icon {
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.875rem;
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.2);
+        }
+
+        /* Enhanced About Section */
+        .about-card {
+            background: linear-gradient(145deg, #ffffff, #f8fafc);
+            border-radius: 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(102, 126, 234, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.02), rgba(118, 75, 162, 0.02));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .about-card:hover::before {
+            opacity: 1;
+        }
+
+        /* Responsive Enhancements */
+        @media (max-width: 768px) {
+            .nav-link {
+                padding: 1rem;
+                justify-content: center;
+                border-radius: 1rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .swiper-button-next,
+            .swiper-button-prev {
+                width: 50px !important;
+                height: 50px !important;
+            }
+
+            .swiper-button-next::after,
+            .swiper-button-prev::after {
+                font-size: 1.2rem !important;
+            }
+
+            .shape-overlay {
+                opacity: 0.03;
+            }
+
+            .header-gradient {
+                padding: 0.5rem 0;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .swiper-pagination-bullet {
+                width: 12px !important;
+                height: 12px !important;
+                margin: 0 4px !important;
+            }
+        }
+
+        /* Enhanced Section Dividers */
+        .wave-divider {
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            opacity: 1;
+            z-index: 10;
+        }
+
+        .wave-divider svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 100px;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+        }
+
+        .wave-divider .shape-fill {
+            fill: #f9fafb;
+        }
+
+        .wave-divider-top {
+            position: absolute;
+            top: -1px;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+            opacity: 1;
+            z-index: 10;
+        }
+
+        .wave-divider-top svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 100px;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+        }
+
+        .wave-divider-top .shape-fill {
+            fill: #f9fafb;
+        }
+
+        /* AI Screen Enhancement */
+        .ai-screen {
+            background: linear-gradient(145deg, #1a1a2e, #16213e);
+            border-radius: 1.5rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(102, 126, 234, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ai-screen::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .ai-screen:hover::before {
+            opacity: 1;
+        }
+
+        .ai-screen-header {
+            background: linear-gradient(135deg, #2d3748, #4a5568);
+            border-bottom: 1px solid rgba(102, 126, 234, 0.2);
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .ai-screen-content {
+            padding: 1.5rem;
+            color: #e2e8f0;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            max-height: 400px;
+            overflow-y: auto;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .ai-screen-dots {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .ai-screen-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .ai-screen-dot.red { background: #ef4444; }
+        .ai-screen-dot.yellow { background: #f59e0b; }
+        .ai-screen-dot.green { background: #10b981; }
+    </style>
+</head>
+<body>
+    <!-- Enhanced Navigation -->
+    <nav class="header-gradient shadow-xl sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="text-4xl font-extrabold logo-enhanced handwriting transition-all duration-300 hover:scale-105">
+                        <i class="fas fa-code mr-2 text-2xl"></i>
+                        Jitware
+                    </span>
+                </div>
+                <div class="hidden md:flex items-center space-x-2">
+                    <a href="#diensten" class="nav-link text-gray-800 hover:text-indigo-600 font-semibold text-lg">
+                        <i class="fas fa-cogs text-sm"></i>
+                        Diensten
+                    </a>
+                    <a href="#cases" class="nav-link text-gray-800 hover:text-indigo-600 font-semibold text-lg">
+                        <i class="fas fa-trophy text-sm"></i>
+                        Cases
+                    </a>
+                    <a href="/blog" class="nav-link text-gray-800 hover:text-indigo-600 font-semibold text-lg">
+                        <i class="fas fa-blog text-sm"></i>
+                        Blog
+                    </a>
+                    <a href="#over-ons" class="nav-link text-gray-800 hover:text-indigo-600 font-semibold text-lg">
+                        <i class="fas fa-users text-sm"></i>
+                        Over ons
+                    </a>
+                    <a href="#contact" class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-3 rounded-full font-semibold text-lg hover:bg-indigo-700 transition hover-scale shadow-lg ml-4">
+                        <i class="fas fa-paper-plane mr-2"></i>
+                        Contact
+                    </a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-800 focus:outline-none p-3 rounded-lg hover:bg-white hover:bg-opacity-20 transition-all">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden mobile-menu-enhanced">
+            <div class="flex flex-col space-y-2 p-6">
+                <a href="#diensten" class="nav-link text-gray-800 hover:text-indigo-600 font-semibold text-lg">
+                    <i class="fas fa-cogs mr-3"></i>
+                    Diensten
+                </a>
+                <a href="#cases" class="nav-link text-gray-800 hover:text-indigo-600 font-semibold text-lg">
+                    <i class="fas fa-trophy mr-3"></i>
+                    Cases
+                </a>
+                <a href="/blog" class="nav-link text-gray-800 hover:text-indigo-600 font-semibold text-lg">
+                    <i class="fas fa-blog mr-3"></i>
+                    Blog
+                </a>
+                <a href="#over-ons" class="nav-link text-gray-800 hover:text-indigo-600 font-semibold text-lg">
+                    <i class="fas fa-users mr-3"></i>
+                    Over ons
+                </a>
+                <a href="#contact" class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-3 rounded-full font-semibold text-center hover:bg-indigo-700 transition hover-scale shadow-md">
+                    <i class="fas fa-paper-plane mr-2"></i>
+                    Contact
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="premium-gradient text-white py-32 md:py-48 relative overflow-hidden">
+        <!-- Enhanced Premium Shapes -->
+        <div class="shape-overlay shape-blob top-20 left-10" style="width: 400px; height: 400px;"></div>
+        <div class="shape-overlay shape-geo bottom-20 right-20" style="width: 250px; height: 250px;"></div>
+        <div class="shape-overlay shape-star top-40 right-40" style="width: 120px; height: 120px;"></div>
+        <div class="shape-overlay shape-circle bottom-40 left-40" style="width: 180px; height: 180px;"></div>
+        <div class="shape-overlay shape-triangle top-60 left-60" style="width: 100px; height: 100px;"></div>
+        <div class="shape-overlay shape-diamond bottom-60 right-60" style="width: 80px; height: 80px;"></div>
+        <div class="shape-overlay shape-hexagon top-80 right-80" style="width: 150px; height: 150px;"></div>
+        <div class="shape-overlay shape-wave bottom-80 left-80" style="width: 200px; height: 100px;"></div>
+        
+        <!-- Additional Premium Shapes -->
+        <div class="shape-overlay shape-star top-20 right-20" style="width: 60px; height: 60px; animation-delay: 2s;"></div>
+        <div class="shape-overlay shape-circle top-80 left-20" style="width: 100px; height: 100px; animation-delay: 1s;"></div>
+        <div class="shape-overlay shape-triangle bottom-20 left-80" style="width: 70px; height: 70px; animation-delay: 3s;"></div>
+        <div class="shape-overlay shape-diamond top-40 left-80" style="width: 50px; height: 50px; animation-delay: 1.5s;"></div>
+        <div class="shape-overlay shape-hexagon bottom-40 right-20" style="width: 90px; height: 90px; animation-delay: 2.5s;"></div>
+        
+        <!-- Premium Floating Elements -->
+        <div class="absolute top-1/4 right-1/4 w-32 h-32 bg-white bg-opacity-10 rounded-full blur-xl animate-subtle-float"></div>
+        <div class="absolute bottom-1/4 left-1/4 w-24 h-24 bg-purple-300 bg-opacity-20 rounded-full blur-lg animate-gentle-pulse"></div>
+        <div class="absolute top-1/2 left-1/3 w-16 h-16 bg-indigo-300 bg-opacity-15 rounded-full blur-md animate-subtle-float" style="animation-delay: 2s;"></div>
+        
+        <!-- Premium Grid Pattern -->
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute top-0 left-0 w-full h-full" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.3) 1px, transparent 0); background-size: 50px 50px;"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="md:flex items-center">
+                <div class="md:w-1/2 mb-12 md:mb-0 animate-fade-in">
+                    <!-- Enhanced Premium Badge -->
+                    <div class="inline-flex items-center bg-white bg-opacity-20 backdrop-blur-sm text-white px-8 py-4 rounded-full shadow-2xl mb-8 border border-white border-opacity-30 hover:bg-opacity-30 transition-all duration-300 animate-gentle-pulse">
+                        <div class="w-8 h-8 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center mr-3 shadow-lg">
+                            <i class="fas fa-star text-white text-sm"></i>
+                        </div>
+                        <span class="font-bold text-lg">Premium Digital Solutions</span>
+                        <div class="ml-3 w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                    </div>
+                    
+                    <!-- Enhanced Main Heading -->
+                    <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-8 text-white handwriting animate-subtle-float relative">
+                        <span class="relative">
+                            Digitale excellentie
+                        </span>
+                        <br>
+                        <span class="gradient-text bg-gradient-to-r from-white via-yellow-100 to-white">voor jouw groei</span>
+                    </h1>
+                    
+                    <!-- Enhanced Description -->
+                    <p class="text-xl md:text-2xl mb-12 opacity-95 leading-relaxed font-medium">
+                        Cutting-edge webdesign, SEO en AI om jouw bedrijf te laten 
+                        <span class="text-yellow-300 font-semibold">schitteren</span> in de digitale wereld.
+                    </p>
+                    
+                    <!-- Enhanced CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-6 mb-8">
+                        <a href="#contact" class="group relative overflow-hidden bg-white text-indigo-600 px-12 py-6 rounded-full font-bold text-lg text-center transition-all duration-500 hover-scale shadow-2xl animate-gentle-pulse border-2 border-white hover:border-yellow-300">
+                            <div class="absolute inset-0 bg-gradient-to-r from-yellow-400 to-orange-500 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+                            <i class="fas fa-chart-line mr-3 text-indigo-600 group-hover:text-yellow-600 transition-colors"></i>
+                            Gratis Analyse
+                            <div class="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-yellow-400 to-orange-500 group-hover:w-full transition-all duration-300"></div>
+                        </a>
+                        <a href="#cases" class="group relative overflow-hidden bg-transparent border-2 border-white px-12 py-6 rounded-full font-bold text-lg text-center hover:bg-white hover:text-indigo-600 transition-all duration-500 hover-scale animate-minimal-wave backdrop-blur-sm">
+                            <i class="fas fa-eye mr-3 group-hover:rotate-12 transition-transform"></i>
+                            Succescases
+                            <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-5 transition-opacity duration-300 rounded-full"></div>
+                        </a>
+                    </div>
+                    
+                    <!-- Enhanced Stats -->
+                    <div class="flex items-center gap-8 text-white opacity-90">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-yellow-300">500+</div>
+                            <div class="text-sm opacity-80">Tevreden klanten</div>
+                        </div>
+                        <div class="w-px h-12 bg-white bg-opacity-30"></div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-yellow-300">98%</div>
+                            <div class="text-sm opacity-80">Succesrate</div>
+                        </div>
+                        <div class="w-px h-12 bg-white bg-opacity-30"></div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-yellow-300">24/7</div>
+                            <div class="text-sm opacity-80">Support</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2 md:pl-12 animate-fade-in" style="animation-delay: 0.3s;">
+                    <!-- Enhanced Dashboard Card -->
+                    <div class="relative group">
+                        <!-- Premium Glow Effect -->
+                        <div class="absolute -inset-4 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-3xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
+                        
+                        <div class="relative bg-white rounded-3xl shadow-2xl overflow-hidden hover-scale animate-subtle-float border border-white border-opacity-20">
+                            <!-- Enhanced Video Container -->
+                            <div class="video-container relative">
+                                <div class="absolute inset-0 bg-gradient-to-br from-indigo-500 via-purple-600 to-pink-500 opacity-90"></div>
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <div class="text-center text-white p-8">
+                                        <i class="fas fa-chart-line text-6xl mb-4 animate-pulse"></i>
+                                        <h3 class="text-2xl font-bold mb-2">Performance Dashboard</h3>
+                                        <p class="opacity-90">Real-time analytics & insights</p>
+                                        <div class="mt-4 flex justify-center space-x-4">
+                                            <div class="bg-white bg-opacity-20 px-4 py-2 rounded-lg">
+                                                <div class="text-sm opacity-80">Traffic</div>
+                                                <div class="text-lg font-bold">+247%</div>
+                                            </div>
+                                            <div class="bg-white bg-opacity-20 px-4 py-2 rounded-lg">
+                                                <div class="text-sm opacity-80">Conversions</div>
+                                                <div class="text-lg font-bold">+85%</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Premium Overlay Elements -->
+                                <div class="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-bold flex items-center">
+                                    <div class="w-2 h-2 bg-white rounded-full mr-2 animate-pulse"></div>
+                                    LIVE
+                                </div>
+                                
+                                <div class="absolute bottom-4 left-4 bg-white bg-opacity-90 backdrop-blur-sm rounded-lg px-3 py-2 shadow-lg">
+                                    <div class="flex items-center">
+                                        <div class="w-3 h-3 bg-green-500 rounded-full mr-2"></div>
+                                        <span class="text-sm font-semibold text-gray-800">Real-time data</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Enhanced Dashboard Info -->
+                            <div class="p-8 bg-gradient-to-r from-gray-50 to-white relative">
+                                <!-- Premium Decorative Elements -->
+                                <div class="absolute top-4 right-4 w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full opacity-20"></div>
+                                <div class="absolute bottom-4 left-4 w-6 h-6 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full opacity-20"></div>
+                                
+                                <div class="flex justify-between items-center">
+                                    <div>
+                                        <h3 class="font-bold text-gray-800 text-xl mb-1">Klantendashboard</h3>
+                                        <p class="text-sm text-gray-600">Resultaten laatste 6 maanden</p>
+                                        <div class="flex items-center mt-2">
+                                            <div class="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                                            <span class="text-xs text-green-600 font-semibold">Trending up</span>
+                                        </div>
+                                    </div>
+                                    <div class="text-right">
+                                        <p class="text-green-600 font-bold text-3xl">+247%</p>
+                                        <p class="text-xs text-gray-600">Organisch verkeer</p>
+                                        <div class="flex items-center justify-end mt-1">
+                                            <i class="fas fa-arrow-up text-green-500 text-xs mr-1"></i>
+                                            <span class="text-xs text-green-600 font-semibold">+12% deze maand</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Enhanced Progress Bar -->
+                                <div class="mt-4">
+                                    <div class="flex justify-between text-xs text-gray-600 mb-1">
+                                        <span>Doel bereikt</span>
+                                        <span>85%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2">
+                                        <div class="bg-gradient-to-r from-green-500 to-blue-500 h-2 rounded-full transition-all duration-1000" style="width: 85%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+
+    <!-- Social Proof Section -->
+    <section class="py-24 bg-gradient-to-b from-white to-gray-50 relative">
+        <div class="wave-divider-top">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path class="shape-fill" d="M0,160L48,144C96,128,192,96,288,106.7C384,117,480,171,576,181.3C672,192,768,160,864,144C960,128,1056,128,1152,138.7C1248,149,1344,171,1392,181.3L1440,192L1440,320L0,320Z"></path>
+            </svg>
+        </div>
+        <!-- Enhanced Shape Overlays -->
+        <div class="shape-overlay shape-blob top-40 right-20" style="width: 300px; height: 300px;"></div>
+        <div class="shape-overlay shape-star top-20 left-20" style="width: 80px; height: 80px;"></div>
+        <div class="shape-overlay shape-circle bottom-40 left-20" style="width: 150px; height: 150px;"></div>
+        <div class="shape-overlay shape-triangle top-60 right-60" style="width: 100px; height: 100px;"></div>
+        <div class="shape-overlay shape-diamond bottom-20 right-40" style="width: 60px; height: 60px;"></div>
+        <div class="shape-overlay shape-hexagon top-80 left-80" style="width: 120px; height: 120px;"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 animate-fade-in">
+                <div class="inline-flex items-center bg-indigo-100 text-indigo-800 px-8 py-4 rounded-full shadow-lg">
+                    <i class="fas fa-star mr-2 text-yellow-400 text-xl"></i>
+                    <span class="font-bold text-lg">4.9/5 uit 45+ reviews</span>
+                    <i class="fas fa-heart ml-2 text-red-400"></i>
+                </div>
+            </div>
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12 px-4 animate-fade-in" style="animation-delay: 0.2s;">
+                <div class="logo-hover enhanced-card p-4"><a href="https://www.dedoncker.be" class="text-gray-800 text-lg font-semibold hover:text-indigo-600 transition-colors">De Doncker</a></div>
+                <div class="logo-hover enhanced-card p-4"><a href="https://www.ds-cleaning.be" class="text-gray-800 text-lg font-semibold hover:text-indigo-600 transition-colors">DS Cleaning</a></div>
+                <div class="logo-hover enhanced-card p-4"><a href="https://www.vissershofmere.be" class="text-gray-800 text-lg font-semibold hover:text-indigo-600 transition-colors">Vissershof</a></div>
+                <div class="logo-hover enhanced-card p-4"><a href="https://www.otentik-wellness.be" class="text-gray-800 text-lg font-semibold hover:text-indigo-600 transition-colors">Otentik Wellness</a></div>
+                <div class="logo-hover enhanced-card p-4"><a href="https://www.bvconell.be/" class="text-gray-800 text-lg font-semibold hover:text-indigo-600 transition-colors">Conell BV</a></div>
+            </div>
+            
+            <!-- Enhanced Testimonials Slider -->
+            <div class="mt-20 max-w-6xl mx-auto animate-fade-in px-4 sm:px-6" style="animation-delay: 0.3s;">
+                <div class="swiper testimonial-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="testimonial-card p-8 lg:p-10 relative">
+                                <div class="absolute -top-6 -left-6 w-16 h-16 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full flex items-center justify-center shadow-lg">
+                                    <i class="fas fa-quote-left text-white text-2xl"></i>
+                                </div>
+                                <div class="flex flex-col md:flex-row items-start gap-6">
+                                    <div class="w-20 h-20 bg-gradient-to-br from-indigo-200 to-purple-200 rounded-full flex items-center justify-center text-2xl font-bold text-indigo-600 shadow-md">
+                                        AL
+                                    </div>
+                                    <div class="flex-1">
+                                        <div class="flex mb-4">
+                                            <i class="fas fa-star text-yellow-400 text-xl mr-1"></i>
+                                            <i class="fas fa-star text-yellow-400 text-xl mr-1"></i>
+                                            <i class="fas fa-star text-yellow-400 text-xl mr-1"></i>
+                                            <i class="fas fa-star text-yellow-400 text-xl mr-1"></i>
+                                            <i class="fas fa-star text-yellow-400 text-xl"></i>
+                                        </div>
+                                        <p class="text-gray-600 mb-6 italic text-lg leading-relaxed">
+                                            "Jens is een zeer geduldige en hulpvaardige kerel om mee samen te werken. Niets is teveel voor hem. Altijd bereikbaar en werkt snel! Topkerel! Bedankt Jens!"
+                                            <span class="block mt-4 text-indigo-500 font-semibold handwriting text-xl">💙 Fan van Jens 💙</span>
+                                        </p>
+                                        <div class="flex items-center">
+                                            <div class="h-px bg-gradient-to-r from-indigo-200 to-purple-200 flex-1 mr-4"></div>
+                                            <p class="font-bold text-gray-800 text-lg">Ann L.</p>
+                                            <span class="mx-3 text-gray-400">|</span>
+                                            <p class="text-gray-600">Otentik Wellness</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="testimonial-card p-8 lg:p-10 relative">
+                                <div class="absolute -top-6 -left-6 w-16 h-16 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full flex items-center justify-center shadow-lg">
+                                    <i class="fas fa-quote-left text-white text-2xl"></i>
+                                </div>
+                                <div class="flex flex-col md:flex-row items-start gap-6">
+                                    <div class="w-20 h-20 bg-gradient-to-br from-green-200 to-blue-200 rounded-full flex items-center justify-center text-2xl font-bold text-green-600 shadow-md">
+                                        SV
+                                    </div>
+                                    <div class="flex-1">
+                                        <div class="flex mb-4">
+                                            <i class="fas fa-star text-yellow-400 text-xl mr-1"></i>
+                                            <i class="fas fa-star text-yellow-400 text-xl mr-1"></i>
+                                            <i class="fas fa-star text-yellow-400 text-xl mr-1"></i>
+                                            <i class="fas fa-star text-yellow-400 text-xl mr-1"></i>
+                                            <i class="fas fa-star text-yellow-400 text-xl"></i>
+                                        </div>
+                                        <p class="text-gray-600 mb-6 italic text-lg leading-relaxed">
+                                            "Uitzonderlijke service en aandacht voor detail. Jens heeft ons bedrijf geholpen met een nieuwe website en nieuwe klanten, alles op tijd en binnen budget."
+                                            <span class="block mt-4 text-green-500 font-semibold handwriting text-xl">🚀 Aanrader!</span>
+                                        </p>
+                                        <div class="flex items-center">
+                                            <div class="h-px bg-gradient-to-r from-green-200 to-blue-200 flex-1 mr-4"></div>
+                                            <p class="font-bold text-gray-800 text-lg">Sam V.</p>
+                                            <span class="mx-3 text-gray-400">|</span>
+                                            <p class="text-gray-600">Conell BV</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="testimonial-card p-8 lg:p-10 relative">
+                                <div class="absolute -top-6 -left-6 w-16 h-16 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full flex items-center justify-center shadow-lg">
+                                    <i class="fas fa-quote-left text-white text-2xl"></i>
+                                </div>
+                                <div class="flex flex-col md:flex-row items-start gap-6">
+                                    <div class="w-20 h-20 bg-gradient-to-br from-pink-200 to-purple-200 rounded-full flex items-center justify-center text-2xl font-bold text-pink-600 shadow-md">
+                                        FV
+                                    </div>
+                                    <div class="flex-1">
+                                        <div class="flex mb-4">
+                                            <i class="fas fa-star text-yellow-400 text-xl mr-1"></i>
+                                            <i class="fas fa-star text-yellow-400 text-xl mr-1"></i>
+                                            <i class="fas fa-star text-yellow-400 text-xl mr-1"></i>
+                                            <i class="fas fa-star text-yellow-400 text-xl mr-1"></i>
+                                            <i class="fas fa-star text-yellow-400 text-xl"></i>
+                                        </div>
+                                        <p class="text-gray-600 mb-6 italic text-lg leading-relaxed">
+                                            "Professionele aanpak en altijd bereid om zich extra in te zetten. Onze website is nu beter dan ooit dankzij Jens zijn expertise."
+                                            <span class="block mt-4 text-pink-500 font-semibold handwriting text-xl">✨ Geweldig werk!</span>
+                                        </p>
+                                        <div class="flex items-center">
+                                            <div class="h-px bg-gradient-to-r from-pink-200 to-purple-200 flex-1 mr-4"></div>
+                                            <p class="font-bold text-gray-800 text-lg">Femke V.</p>
+                                            <span class="mx-3 text-gray-400">|</span>
+                                            <p class="text-gray-600">Dakwerken VDD</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </div>
+        </div>
+        <div class="wave-divider">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path class="shape-fill" d="M0,96L48,85.3C96,75,192,53,288,64C384,75,480,117,576,128C672,139,768,117,864,90.7C960,64,1056,32,1152,32C1248,32,1344,64,1392,80L1440,96L1440,320L0,320Z"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Expertises -->
+    <section id="diensten" class="py-24 bg-gray-50 relative">
+        <!-- Enhanced Shape Overlays -->
+        <div class="shape-overlay shape-blob top-40 left-20" style="width: 350px; height: 350px;"></div>
+        <div class="shape-overlay shape-geo bottom-20 right-20" style="width: 200px; height: 200px;"></div>
+        <div class="shape-overlay shape-star top-20 right-40" style="width: 90px; height: 90px;"></div>
+        <div class="shape-overlay shape-circle bottom-40 left-40" style="width: 160px; height: 160px;"></div>
+        <div class="shape-overlay shape-triangle top-60 left-60" style="width: 80px; height: 80px;"></div>
+        <div class="shape-overlay shape-diamond bottom-60 right-60" style="width: 70px; height: 70px;"></div>
+        <div class="shape-overlay shape-hexagon top-80 right-80" style="width: 130px; height: 130px;"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 animate-fade-in">
+                <div class="section-title">
+                    <div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center shadow-xl">
+                        <i class="fas fa-cogs text-white text-2xl"></i>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 handwriting">Onze Expertises</h2>
+                </div>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto mt-4">Op maat gemaakte oplossingen voor jouw digitale succes.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="enhanced-card service-card overflow-hidden hover:shadow-2xl transition animate-fade-in animate-subtle-float">
+                    <div class="p-8">
+                        <div class="w-20 h-20 bg-gradient-to-br from-indigo-100 to-indigo-200 rounded-2xl flex items-center justify-center mb-6 shadow-md">
+                            <i class="fas fa-search service-icon text-indigo-600 text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">SEO & Webdesign</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">Geoptimaliseerde websites die converteren en gevonden worden door jouw doelgroep.</p>
+                        <a href="#" class="text-indigo-600 font-semibold inline-flex items-center hover:text-indigo-800 transition group">
+                            Meer over SEO & Webdesign
+                            <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                    <div class="bg-gradient-to-r from-indigo-50 to-indigo-100 px-8 py-6">
+                        <ul class="space-y-3">
+                            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3 text-lg"></i><span class="text-gray-700">Technische SEO-audit</span></li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3 text-lg"></i><span class="text-gray-700">Conversie-optimalisatie</span></li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3 text-lg"></i><span class="text-gray-700">Responsief design</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="enhanced-card service-card overflow-hidden hover:shadow-2xl transition animate-fade-in animate-subtle-float" style="animation-delay: 0.1s;">
+                    <div class="p-8">
+                        <div class="w-20 h-20 bg-gradient-to-br from-purple-100 to-purple-200 rounded-2xl flex items-center justify-center mb-6 shadow-md">
+                            <i class="fas fa-video service-icon text-purple-600 text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Video & Grafisch Ontwerp</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">Visueel aantrekkelijke content die jouw merk laat opvallen en engagement verhoogt.</p>
+                        <a href="#" class="text-purple-600 font-semibold inline-flex items-center hover:text-purple-800 transition group">
+                            Ontdek Video & Design
+                            <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                    <div class="bg-gradient-to-r from-purple-50 to-purple-100 px-8 py-6">
+                        <ul class="space-y-3">
+                            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3 text-lg"></i><span class="text-gray-700">Bedrijfsvideo's</span></li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3 text-lg"></i><span class="text-gray-700">Logo & huisstijl</span></li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3 text-lg"></i><span class="text-gray-700">Social media content</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="enhanced-card service-card overflow-hidden hover:shadow-2xl transition animate-fade-in animate-subtle-float" style="animation-delay: 0.2s;">
+                    <div class="p-8">
+                        <div class="w-20 h-20 bg-gradient-to-br from-blue-100 to-blue-200 rounded-2xl flex items-center justify-center mb-6 shadow-md">
+                            <i class="fas fa-robot service-icon text-blue-600 text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">AI-Oplossingen</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">Automatisering en innovatie met cutting-edge AI-technologie voor efficiëntere processen.</p>
+                        <a href="https://www.jitware.be/tools/" class="text-blue-600 font-semibold inline-flex items-center hover:text-blue-800 transition group">
+                            Verken AI-Tools
+                            <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                    <div class="bg-gradient-to-r from-blue-50 to-blue-100 px-8 py-6">
+                        <ul class="space-y-3">
+                            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3 text-lg"></i><span class="text-gray-700">AI-data-analyse</span></li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3 text-lg"></i><span class="text-gray-700">Contentgeneratie</span></li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3 text-lg"></i><span class="text-gray-700">GEO & SGE</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wave-divider">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path class="shape-fill" d="M0,96L48,85.3C96,75,192,53,288,64C384,75,480,117,576,128C672,139,768,117,864,90.7C960,64,1056,32,1152,32C1248,32,1344,64,1392,80L1440,96L1440,320L0,320Z"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Results -->
+    <section class="py-24 bg-gradient-to-r from-indigo-600 to-purple-600 text-white relative">
+        <!-- Enhanced Shape Overlays -->
+        <div class="shape-overlay shape-blob bottom-40 right-20" style="width: 280px; height: 280px;"></div>
+        <div class="shape-overlay shape-star top-20 right-40" style="width: 100px; height: 100px;"></div>
+        <div class="shape-overlay shape-circle bottom-20 left-40" style="width: 180px; height: 180px;"></div>
+        <div class="shape-overlay shape-triangle top-40 left-20" style="width: 90px; height: 90px;"></div>
+        <div class="shape-overlay shape-diamond bottom-60 right-60" style="width: 70px; height: 70px;"></div>
+        <div class="shape-overlay shape-geo top-60 left-60" style="width: 150px; height: 150px;"></div>
+        <div class="shape-overlay shape-hexagon bottom-80 left-80" style="width: 120px; height: 120px;"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 animate-fade-in">
+                <div class="section-title">
+                    <div class="w-16 h-16 bg-white bg-opacity-20 backdrop-blur-sm rounded-full flex items-center justify-center shadow-xl">
+                        <i class="fas fa-chart-line text-white text-2xl"></i>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-extrabold handwriting text-white">Impactvolle Resultaten</h2>
+                </div>
+                <p class="text-xl opacity-90 max-w-3xl mx-auto mt-4">Jouw groei is onze missie - bewezen resultaten die spreken.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-effect p-10 rounded-2xl backdrop-blur-lg hover-scale count-up animate-gentle-pulse border border-white border-opacity-20">
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-users text-3xl"></i>
+                        </div>
+                        <div class="text-6xl font-extrabold mb-4 count-up-number" data-target="75">0%</div>
+                        <h3 class="text-xl font-semibold mb-3">Meer Bezoekers</h3>
+                        <p class="opacity-90">Gemiddelde stijging in organisch verkeer binnen 6 maanden.</p>
+                    </div>
+                </div>
+                <div class="glass-effect p-10 rounded-2xl backdrop-blur-lg hover-scale count-up animate-gentle-pulse border border-white border-opacity-20" style="animation-delay: 0.1s;">
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-trophy text-3xl"></i>
+                        </div>
+                        <div class="text-6xl font-extrabold mb-4 count-up-number" data-target="3">0</div>
+                        <h3 class="text-xl font-semibold mb-3">Google Topposities</h3>
+                        <p class="opacity-90">Van pagina 4 naar top 3 voor cruciale zoektermen.</p>
+                    </div>
+                </div>
+                <div class="glass-effect p-10 rounded-2xl backdrop-blur-lg hover-scale count-up animate-gentle-pulse border border-white border-opacity-20" style="animation-delay: 0.2s;">
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-chart-bar text-3xl"></i>
+                        </div>
+                        <div class="text-6xl font-extrabold mb-4 count-up-number" data-target="20">0%</div>
+                        <h3 class="text-xl font-semibold mb-3">Hogere Conversies</h3>
+                        <p class="opacity-90">Dankzij geoptimaliseerde landingspagina's en UX.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Cases -->
+    <section id="cases" class="py-24 bg-white relative">
+        <!-- Enhanced Shape Overlays -->
+        <div class="shape-overlay shape-blob top-40 left-20" style="width: 320px; height: 320px;"></div>
+        <div class="shape-overlay shape-triangle top-60 right-60" style="width: 110px; height: 110px;"></div>
+        <div class="shape-overlay shape-diamond bottom-40 right-40" style="width: 80px; height: 80px;"></div>
+        <div class="shape-overlay shape-star bottom-20 left-40" style="width: 95px; height: 95px;"></div>
+        <div class="shape-overlay shape-circle top-20 right-20" style="width: 140px; height: 140px;"></div>
+        <div class="shape-overlay shape-geo bottom-60 left-60" style="width: 170px; height: 170px;"></div>
+        <div class="shape-overlay shape-hexagon top-80 left-80" style="width: 100px; height: 100px;"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 animate-fade-in">
+                <div class="section-title">
+                    <div class="w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center shadow-xl">
+                        <i class="fas fa-trophy text-white text-2xl"></i>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 handwriting">Succesverhalen</h2>
+                </div>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto mt-4">Echte resultaten voor echte bedrijven - onze klanten vertellen hun verhaal.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="enhanced-card overflow-hidden hover:shadow-2xl transition hover-scale animate-subtle-float">
+                    <div class="h-56 bg-gradient-to-br from-purple-400 via-pink-500 to-red-500 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="text-center text-white">
+                                <i class="fas fa-home text-4xl mb-2"></i>
+                                <h3 class="text-lg font-bold">Dakwerken Website</h3>
+                            </div>
+                        </div>
+                        <div class="absolute top-4 right-4 bg-green-500 text-white px-2 py-1 rounded-full text-xs font-bold">
+                            ACTIEF
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-purple-100 text-purple-800 text-xs font-medium px-3 py-1 rounded-full">SEO + Website</span>
+                            <span class="bg-green-100 text-green-800 text-xs font-medium px-3 py-1 rounded-full ml-2">Lokaal</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Dakwerken Van den Driessche</h3>
+                        <p class="text-gray-600 mb-4">Complete website redesign met lokale SEO-strategie voor maximale zichtbaarheid.</p>
+                        <div class="bg-gradient-to-r from-green-50 to-blue-50 p-3 rounded-lg mb-4">
+                            <p class="text-gray-700 font-semibold"><strong>Resultaat:</strong> Van pagina 10 naar positie 2 in Google. Verdrievoudiging van aanvragen.</p>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <a href="https://www.dakwerken-vandendriessche.be" target="_blank" class="text-purple-600 font-semibold inline-flex items-center hover:text-purple-800 transition group">
+                                <i class="fas fa-external-link-alt mr-2"></i>
+                                Bekijk Website
+                            </a>
+                            <a href="/seo/positie-91-naar-positie-2" target="_blank" class="text-blue-600 font-semibold inline-flex items-center hover:text-blue-800 transition group ml-4">
+                                <i class="fas fa-chart-line mr-2"></i>
+                                Bekijk Case
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="enhanced-card overflow-hidden hover:shadow-2xl transition hover-scale animate-subtle-float" style="animation-delay: 0.1s;">
+                    <div class="h-56 bg-gradient-to-br from-indigo-400 via-purple-500 to-pink-500 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="text-center text-white">
+                                <i class="fas fa-store text-4xl mb-2"></i>
+                                <h3 class="text-lg font-bold">Business Redesign</h3>
+                            </div>
+                        </div>
+                        <div class="absolute top-4 right-4 bg-blue-500 text-white px-2 py-1 rounded-full text-xs font-bold">
+                            REDESIGN
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-indigo-100 text-indigo-800 text-xs font-medium px-3 py-1 rounded-full">SEO + Redesign</span>
+                            <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-3 py-1 rounded-full ml-2">Premium</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">De Doncker</h3>
+                        <p class="text-gray-600 mb-4">Complete transformatie van verouderde naar moderne, geoptimaliseerde website met focus op gebruikerservaring.</p>
+                        <div class="bg-gradient-to-r from-indigo-50 to-purple-50 p-3 rounded-lg mb-4">
+                            <p class="text-gray-700 font-semibold"><strong>Resultaat:</strong> +180% meer organisch verkeer en verbeterde conversieratio.</p>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <a href="https://www.dedoncker.be" target="_blank" class="text-indigo-600 font-semibold inline-flex items-center hover:text-indigo-800 transition group">
+                                <i class="fas fa-external-link-alt mr-2"></i>
+                                Bekijk Website
+                            </a>
+                            <a href="/cases/website-seo-de-doncker" target="_blank" class="text-purple-600 font-semibold inline-flex items-center hover:text-purple-800 transition group ml-4">
+                                <i class="fas fa-chart-line mr-2"></i>
+                                Bekijk Case
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="enhanced-card overflow-hidden hover:shadow-2xl transition hover-scale animate-subtle-float" style="animation-delay: 0.2s;">
+                    <div class="h-56 bg-gradient-to-br from-green-400 via-teal-500 to-blue-500 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="text-center text-white">
+                                <i class="fas fa-spa text-4xl mb-2"></i>
+                                <h3 class="text-lg font-bold">Wellness Platform</h3>
+                            </div>
+                        </div>
+                        <div class="absolute top-4 right-4 bg-orange-500 text-white px-2 py-1 rounded-full text-xs font-bold">
+                            BOOKING
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-green-100 text-green-800 text-xs font-medium px-3 py-1 rounded-full">SEO + Boekingsmodule</span>
+                            <span class="bg-orange-100 text-orange-800 text-xs font-medium px-3 py-1 rounded-full ml-2">Custom</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Otentik Wellness</h3>
+                        <p class="text-gray-600 mb-4">Geavanceerde website met geïntegreerd reserveringssysteem en SEO-optimalisatie voor wellness sector.</p>
+                        <div class="bg-gradient-to-r from-green-50 to-teal-50 p-3 rounded-lg mb-4">
+                            <p class="text-gray-700 font-semibold"><strong>Resultaat:</strong> +230% bezoekers in 3 maanden met volledig geautomatiseerd boekingssysteem.</p>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <a href="https://www.otentik-wellness.be" target="_blank" class="text-green-600 font-semibold inline-flex items-center hover:text-green-800 transition group">
+                                <i class="fas fa-external-link-alt mr-2"></i>
+                                Bekijk Website
+                            </a>
+                            <a href="#contact" class="text-teal-600 font-semibold inline-flex items-center hover:text-teal-800 transition group ml-4">
+                                <i class="fas fa-envelope mr-2"></i>
+                                Vraag Info
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center animate-fade-in">
+                <a href="#" class="inline-flex items-center px-10 py-4 border-2 border-gray-300 text-base font-semibold rounded-full text-gray-700 bg-white hover:bg-gray-50 hover-scale shadow-lg animate-subtle-float hover:border-indigo-300 transition-all">
+                    <i class="fas fa-folder-open mr-3"></i>
+                    Alle Succescases
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+        <div class="wave-divider">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path class="shape-fill" d="M0,96L48,85.3C96,75,192,53,288,64C384,75,480,117,576,128C672,139,768,117,864,90.7C960,64,1056,32,1152,32C1248,32,1344,64,1392,80L1440,96L1440,320L0,320Z"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Enhanced AI Section -->
+    <section class="py-24 bg-gray-50 relative">
+        <!-- Enhanced Shape Overlays -->
+        <div class="shape-overlay shape-blob bottom-40 left-20" style="width: 300px; height: 300px;"></div>
+        <div class="shape-overlay shape-circle top-40 right-40" style="width: 200px; height: 200px;"></div>
+        <div class="shape-overlay shape-diamond bottom-60 right-60" style="width: 90px; height: 90px;"></div>
+        <div class="shape-overlay shape-star top-20 left-40" style="width: 110px; height: 110px;"></div>
+        <div class="shape-overlay shape-triangle bottom-20 left-60" style="width: 80px; height: 80px;"></div>
+        <div class="shape-overlay shape-geo top-60 right-60" style="width: 150px; height: 150px;"></div>
+        <div class="shape-overlay shape-hexagon bottom-80 right-80" style="width: 120px; height: 120px;"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+                <div class="mb-12 lg:mb-0 animate-fade-in">
+                    <div class="section-title justify-start">
+                        <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center shadow-xl">
+                            <i class="fas fa-robot text-white text-2xl"></i>
+                        </div>
+                        <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 handwriting">Slimmer met AI</h2>
+                    </div>
+                    <p class="text-xl text-gray-600 mb-8 mt-4">Automatiseer en optimaliseer met onze geavanceerde AI-oplossingen die jouw bedrijfsprocessen revolutioneren.</p>
+                    <div class="space-y-6 mb-8">
+                        <div class="flex items-start animate-subtle-float enhanced-card p-4">
+                            <div class="flex-shrink-0 bg-gradient-to-br from-blue-100 to-blue-200 rounded-xl p-4 mr-6 shadow-md">
+                                <i class="fas fa-brain text-blue-600 text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-900 mb-2 text-lg">AI Data-analyse</h3>
+                                <p class="text-gray-600">Transformeer complexe data in waardevolle inzichten voor strategische besluitvorming en groeioptimalisatie.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start animate-subtle-float enhanced-card p-4" style="animation-delay: 0.1s;">
+                            <div class="flex-shrink-0 bg-gradient-to-br from-purple-100 to-purple-200 rounded-xl p-4 mr-6 shadow-md">
+                                <i class="fas fa-pen-fancy text-purple-600 text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-900 mb-2 text-lg">AI-Copywriting</h3>
+                                <p class="text-gray-600">Genereer hoogwaardige, SEO-geoptimaliseerde content die converteert en jouw doelgroep aanspreekt.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start animate-subtle-float enhanced-card p-4" style="animation-delay: 0.2s;">
+                            <div class="flex-shrink-0 bg-gradient-to-br from-green-100 to-green-200 rounded-xl p-4 mr-6 shadow-md">
+                                <i class="fas fa-cogs text-green-600 text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-900 mb-2 text-lg">AI-Optimalisaties</h3>
+                                <p class="text-gray-600">Identificeer automatisch knelpunten en implementeer data-gedreven verbeteringen voor maximale ROI.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Enhanced AI Screen -->
+                <div class="animate-fade-in animate-subtle-float" style="animation-delay: 0.2s;">
+                    <div class="ai-screen relative">
+                        <div class="ai-screen-header">
+                            <div class="ai-screen-dots">
+                                <div class="ai-screen-dot red"></div>
+                                <div class="ai-screen-dot yellow"></div>
+                                <div class="ai-screen-dot green"></div>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-terminal text-gray-300 mr-3"></i>
+                                <span id="prompt-titel" class="text-gray-300 font-semibold">AI Marketing Prompt Generator</span>
+                            </div>
+                            <button onclick="copyPrompt()" title="Copy to clipboard" class="text-gray-300 hover:text-white transition-colors bg-gray-600 px-4 py-2 rounded-lg border border-gray-500 hover:bg-gray-500 hover:border-gray-400 flex items-center">
+                                <i class="far fa-copy mr-2"></i>
+                                <span class="text-sm">COPY</span>
+                            </button>
+                        </div>
+                        <div class="ai-screen-content">
+                            <div id="prompt-inhoud" class="cursor-pointer hover:bg-gray-700 hover:bg-opacity-30 p-2 rounded transition-colors" onclick="copyPrompt()">
+// AI-Powered Marketing Strategy Generator
+// Generated: Today
+
+function generateMarketingStrategy() {
+    const context = {
+        business: "Local Service Provider",
+        goal: "Increase online visibility",
+        budget: "€2000/month",
+        timeline: "6 months"
+    };
+    
+    return {
+        seoStrategy: analyzeKeywords(context),
+        contentPlan: createContentCalendar(context),
+        paidAds: optimizeAdCampaigns(context),
+        analytics: setupTracking(context)
+    };
+}
+
+// Real-time performance metrics
+const metrics = {
+    organic_traffic: "+247%",
+    conversion_rate: "+85%",
+    roi: "+320%"
+};
+
+console.log("✅ Strategy generated successfully!");
+console.log("📈 Predicted growth: 3-5x improvement");
+console.log("🎯 Next action: Implement keyword optimization");
+                            </div>
+                        </div>
+                        <div class="p-4 text-center border-t border-gray-600">
+                            <a href="ai/prompts/prompt-library" class="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-3 rounded-full font-semibold inline-flex items-center border border-blue-400 hover:from-blue-600 hover:to-purple-700 hover:border-blue-300 animate-gentle-pulse transition-all shadow-lg">
+                                <i class="fas fa-code mr-3"></i>
+                                Prompt Library
+                                <i class="fas fa-arrow-right ml-3 text-sm"></i>
+                            </a>
+                            <p class="text-gray-400 text-sm mt-3">500+ AI prompts beschikbaar voor marketing, SEO & content</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Tools Section -->
+    <section id="tools" class="py-24 bg-white relative">
+        <!-- Enhanced Shape Overlays -->
+        <div class="shape-overlay shape-blob top-40 left-20" style="width: 280px; height: 280px;"></div>
+        <div class="shape-overlay shape-star bottom-60 right-60" style="width: 100px; height: 100px;"></div>
+        <div class="shape-overlay shape-triangle top-20 right-40" style="width: 85px; height: 85px;"></div>
+        <div class="shape-overlay shape-circle bottom-20 left-60" style="width: 160px; height: 160px;"></div>
+        <div class="shape-overlay shape-diamond top-60 left-60" style="width: 70px; height: 70px;"></div>
+        <div class="shape-overlay shape-geo bottom-40 right-40" style="width: 140px; height: 140px;"></div>
+        <div class="shape-overlay shape-hexagon top-80 right-80" style="width: 110px; height: 110px;"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 animate-fade-in">
+                <div class="section-title">
+                    <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-full flex items-center justify-center shadow-xl">
+                        <i class="fas fa-tools text-white text-2xl"></i>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 handwriting">Gratis Tools</h2>
+                </div>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto mt-4">Boost je productiviteit met onze professionele tools - volledig gratis te gebruiken.</p>
+            </div>
+            
+            <!-- Enhanced Tools Grid -->
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="enhanced-card overflow-hidden hover:shadow-2xl transition animate-fade-in animate-subtle-float">
+                    <div class="h-48 bg-gradient-to-br from-blue-400 via-purple-500 to-pink-500 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="text-center text-white">
+                                <i class="fas fa-search text-4xl mb-2"></i>
+                                <h3 class="text-lg font-bold">SEO Analyzer</h3>
+                                <p class="text-sm opacity-90">Real-time website analysis</p>
+                            </div>
+                        </div>
+                        <div class="absolute top-4 right-4 bg-green-500 text-white px-2 py-1 rounded-full text-xs font-bold">
+                            GRATIS
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">SEO Tool</span>
+                            <span class="bg-green-100 text-green-800 text-xs font-medium px-3 py-1 rounded-full ml-2">Instant</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Website SEO Checker</h3>
+                        <p class="text-gray-600 mb-4">Analyseer je website op SEO-performance, technische issues en krijg direct verbeteringsuggesties.</p>
+                        <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-3 rounded-lg mb-4">
+                            <p class="text-gray-700 text-sm"><strong>Features:</strong> Page Speed, Meta Tags, Mobile Friendly, SSL Check</p>
+                        </div>
+                        <a href="/tools/seo-checker" class="text-blue-600 font-semibold inline-flex items-center hover:text-blue-800 transition group">
+                            <i class="fas fa-play-circle mr-2"></i>
+                            Start Gratis Analyse
+                            <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="enhanced-card overflow-hidden hover:shadow-2xl transition animate-fade-in animate-subtle-float" style="animation-delay: 0.1s;">
+                    <div class="h-48 bg-gradient-to-br from-green-400 via-teal-500 to-blue-500 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="text-center text-white">
+                                <i class="fas fa-key text-4xl mb-2"></i>
+                                <h3 class="text-lg font-bold">Keyword Research</h3>
+                                <p class="text-sm opacity-90">Find profitable keywords</p>
+                            </div>
+                        </div>
+                        <div class="absolute top-4 right-4 bg-orange-500 text-white px-2 py-1 rounded-full text-xs font-bold">
+                            PREMIUM
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-green-100 text-green-800 text-xs font-medium px-3 py-1 rounded-full">Keyword Tool</span>
+                            <span class="bg-orange-100 text-orange-800 text-xs font-medium px-3 py-1 rounded-full ml-2">Advanced</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Keyword Generator</h3>
+                        <p class="text-gray-600 mb-4">Ontdek winstgevende keywords met zoekvolume, concurrentie-analyse en trend data voor jouw niche.</p>
+                        <div class="bg-gradient-to-r from-green-50 to-teal-50 p-3 rounded-lg mb-4">
+                            <p class="text-gray-700 text-sm"><strong>Features:</strong> Search Volume, Competition, CPC, Trends</p>
+                        </div>
+                        <a href="/tools/keyword-generator" class="text-green-600 font-semibold inline-flex items-center hover:text-green-800 transition group">
+                            <i class="fas fa-play-circle mr-2"></i>
+                            Ontdek Keywords
+                            <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="enhanced-card overflow-hidden hover:shadow-2xl transition animate-fade-in animate-subtle-float" style="animation-delay: 0.2s;">
+                    <div class="h-48 bg-gradient-to-br from-purple-400 via-pink-500 to-red-500 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="text-center text-white">
+                                <i class="fas fa-edit text-4xl mb-2"></i>
+                                <h3 class="text-lg font-bold">Content Creator</h3>
+                                <p class="text-sm opacity-90">AI-powered writing</p>
+                            </div>
+                        </div>
+                        <div class="absolute top-4 right-4 bg-purple-500 text-white px-2 py-1 rounded-full text-xs font-bold">
+                            AI
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-purple-100 text-purple-800 text-xs font-medium px-3 py-1 rounded-full">AI Tool</span>
+                            <span class="bg-red-100 text-red-800 text-xs font-medium px-3 py-1 rounded-full ml-2">Smart</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">AI Content Generator</h3>
+                        <p class="text-gray-600 mb-4">Genereer SEO-geoptimaliseerde blog posts, product beschrijvingen en social media content met AI.</p>
+                        <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-3 rounded-lg mb-4">
+                            <p class="text-gray-700 text-sm"><strong>Features:</strong> Blog Posts, Meta Descriptions, Social Content</p>
+                        </div>
+                        <a href="/tools/ai-content-generator" class="text-purple-600 font-semibold inline-flex items-center hover:text-purple-800 transition group">
+                            <i class="fas fa-play-circle mr-2"></i>
+                            Genereer Content
+                            <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center animate-fade-in">
+                <a href="/tools" class="inline-flex items-center px-10 py-4 border-2 border-gray-300 text-base font-semibold rounded-full text-gray-700 bg-white hover:bg-gray-50 hover-scale shadow-lg animate-subtle-float hover:border-orange-300 transition-all">
+                    <i class="fas fa-toolbox mr-3"></i>
+                    Alle Tools
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Financial Insights Section -->
+    <section id="finances" class="py-24 bg-gray-50 relative">
+        <!-- Enhanced Shape Overlays -->
+        <div class="shape-overlay shape-blob bottom-40 right-20" style="width: 290px; height: 290px;"></div>
+        <div class="shape-overlay shape-circle top-20 left-40" style="width: 170px; height: 170px;"></div>
+        <div class="shape-overlay shape-diamond bottom-20 left-60" style="width: 85px; height: 85px;"></div>
+        <div class="shape-overlay shape-star top-60 right-60" style="width: 105px; height: 105px;"></div>
+        <div class="shape-overlay shape-triangle bottom-40 left-40" style="width: 90px; height: 90px;"></div>
+        <div class="shape-overlay shape-geo top-20 right-40" style="width: 130px; height: 130px;"></div>
+        <div class="shape-overlay shape-hexagon bottom-80 left-80" style="width: 115px; height: 115px;"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 animate-fade-in">
+                <div class="section-title">
+                    <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center shadow-xl">
+                        <i class="fas fa-chart-pie text-white text-2xl"></i>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 handwriting">Financiële Inzichten</h2>
+                </div>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto mt-4">Blijf voorop met actuele financiële trends en strategische analyses.</p>
+            </div>
+            
+            <!-- Enhanced Financial Articles Grid -->
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="enhanced-card overflow-hidden hover:shadow-2xl transition animate-fade-in animate-subtle-float">
+                    <div class="h-48 bg-gradient-to-br from-green-400 via-emerald-500 to-teal-500 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="text-center text-white">
+                                <i class="fas fa-chart-line text-4xl mb-2"></i>
+                                <h3 class="text-lg font-bold">ROI Optimalisatie</h3>
+                                <p class="text-sm opacity-90">Maximaliseer je investering</p>
+                            </div>
+                        </div>
+                        <div class="absolute top-4 right-4 bg-green-500 text-white px-2 py-1 rounded-full text-xs font-bold">
+                            TRENDING
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-green-100 text-green-800 text-xs font-medium px-3 py-1 rounded-full">ROI</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full ml-2">Strategy</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Marketing ROI Berekenen</h3>
+                        <p class="text-gray-600 mb-4">Leer hoe je de return on investment van je marketing campagnes correct meet en optimaliseert voor maximale winst.</p>
+                        <div class="bg-gradient-to-r from-green-50 to-emerald-50 p-3 rounded-lg mb-4">
+                            <p class="text-gray-700 text-sm"><strong>Leestijd:</strong> 5 min • <strong>Niveau:</strong> Gevorderd</p>
+                        </div>
+                        <a href="/financien/marketing-roi-berekenen" class="text-green-600 font-semibold inline-flex items-center hover:text-green-800 transition group">
+                            <i class="fas fa-book-open mr-2"></i>
+                            Lees Artikel
+                            <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="enhanced-card overflow-hidden hover:shadow-2xl transition animate-fade-in animate-subtle-float" style="animation-delay: 0.1s;">
+                    <div class="h-48 bg-gradient-to-br from-blue-400 via-indigo-500 to-purple-500 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="text-center text-white">
+                                <i class="fas fa-coins text-4xl mb-2"></i>
+                                <h3 class="text-lg font-bold">Budget Planning</h3>
+                                <p class="text-sm opacity-90">Smart budgeteren</p>
+                            </div>
+                        </div>
+                        <div class="absolute top-4 right-4 bg-blue-500 text-white px-2 py-1 rounded-full text-xs font-bold">
+                            POPULAIR
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">Budget</span>
+                            <span class="bg-purple-100 text-purple-800 text-xs font-medium px-3 py-1 rounded-full ml-2">Planning</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Marketing Budget 2024</h3>
+                        <p class="text-gray-600 mb-4">Effectieve strategieën voor het verdelen van je marketing budget over verschillende kanalen en campagnes.</p>
+                        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-3 rounded-lg mb-4">
+                            <p class="text-gray-700 text-sm"><strong>Leestijd:</strong> 8 min • <strong>Niveau:</strong> Beginner</p>
+                        </div>
+                        <a href="/financien/marketing-budget-2024" class="text-blue-600 font-semibold inline-flex items-center hover:text-blue-800 transition group">
+                            <i class="fas fa-book-open mr-2"></i>
+                            Lees Artikel
+                            <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="enhanced-card overflow-hidden hover:shadow-2xl transition animate-fade-in animate-subtle-float" style="animation-delay: 0.2s;">
+                    <div class="h-48 bg-gradient-to-br from-yellow-400 via-orange-500 to-red-500 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="text-center text-white">
+                                <i class="fas fa-piggy-bank text-4xl mb-2"></i>
+                                <h3 class="text-lg font-bold">Cost Analysis</h3>
+                                <p class="text-sm opacity-90">Kosten optimaliseren</p>
+                            </div>
+                        </div>
+                        <div class="absolute top-4 right-4 bg-orange-500 text-white px-2 py-1 rounded-full text-xs font-bold">
+                            NIEUW
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-3 py-1 rounded-full">Kosten</span>
+                            <span class="bg-orange-100 text-orange-800 text-xs font-medium px-3 py-1 rounded-full ml-2">Analyse</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Hidden Costs Marketing</h3>
+                        <p class="text-gray-600 mb-4">Ontdek verborgen kosten in je marketing strategie en leer hoe je deze kunt vermijden of minimaliseren.</p>
+                        <div class="bg-gradient-to-r from-yellow-50 to-orange-50 p-3 rounded-lg mb-4">
+                            <p class="text-gray-700 text-sm"><strong>Leestijd:</strong> 6 min • <strong>Niveau:</strong> Intermediate</p>
+                        </div>
+                        <a href="/financien/hidden-costs-marketing" class="text-orange-600 font-semibold inline-flex items-center hover:text-orange-800 transition group">
+                            <i class="fas fa-book-open mr-2"></i>
+                            Lees Artikel
+                            <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center animate-fade-in">
+                <a href="/financien" class="inline-flex items-center px-10 py-4 border-2 border-gray-300 text-base font-semibold rounded-full text-gray-700 bg-white hover:bg-gray-50 hover-scale shadow-lg animate-subtle-float hover:border-green-300 transition-all">
+                    <i class="fas fa-newspaper mr-3"></i>
+                    Alle Artikelen
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Knowledge Section -->
+    <section id="kennis" class="py-24 bg-white relative">
+        <!-- Enhanced Shape Overlays -->
+        <div class="shape-overlay shape-blob top-40 left-20" style="width: 310px; height: 310px;"></div>
+        <div class="shape-overlay shape-star bottom-40 right-40" style="width: 95px; height: 95px;"></div>
+        <div class="shape-overlay shape-triangle top-60 right-60" style="width: 105px; height: 105px;"></div>
+        <div class="shape-overlay shape-circle bottom-20 left-60" style="width: 150px; height: 150px;"></div>
+        <div class="shape-overlay shape-diamond top-20 right-40" style="width: 75px; height: 75px;"></div>
+        <div class="shape-overlay shape-geo bottom-60 left-60" style="width: 135px; height: 135px;"></div>
+        <div class="shape-overlay shape-hexagon top-80 right-80" style="width: 125px; height: 125px;"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 animate-fade-in">
+                <div class="section-title">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-full flex items-center justify-center shadow-xl">
+                        <i class="fas fa-graduation-cap text-white text-2xl"></i>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 handwriting">Kennis & Inzichten</h2>
+                </div>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto mt-4">Duik in samenvattingen, verkooptechnieken en bedrijfsbeheer voor continue groei.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-10 mb-12">
+                <!-- Book Summaries Column -->
+                <div class="animate-fade-in">
+                    <div class="enhanced-card p-8 h-full flex flex-col">
+                        <div class="text-center mb-6">
+                            <div class="w-16 h-16 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full flex items-center justify-center mx-auto mb-4 shadow-md">
+                                <i class="fas fa-book text-blue-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-2">Boek Samenvattingen</h3>
+                            <p class="text-gray-600">Kernpunten uit business bestsellers</p>
+                        </div>
+                        
+                        <div class="flex-1 mb-6">
+                            <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-xl mb-4">
+                                <h4 class="font-bold text-gray-900 mb-2">Atomic Habits - James Clear</h4>
+                                <p class="text-gray-600 text-sm mb-3">Praktische strategieën voor het vormen van goede gewoonten en het doorbreken van slechte patronen.</p>
+                                <div class="flex items-center text-xs text-blue-600">
+                                    <i class="fas fa-clock mr-1"></i>
+                                    <span class="mr-3">10 min leestijd</span>
+                                    <i class="fas fa-star mr-1"></i>
+                                    <span>Bestseller</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <a href="/boek-samenvattingen" class="inline-flex items-center px-6 py-3 border-2 border-blue-300 text-blue-700 font-semibold rounded-full hover:bg-blue-50 hover-scale transition-all text-center justify-center">
+                            <i class="fas fa-books mr-2"></i>
+                            Bekijk alle samenvattingen
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Sales Column -->
+                <div class="animate-fade-in" style="animation-delay: 0.1s;">
+                    <div class="enhanced-card p-8 h-full flex flex-col">
+                        <div class="text-center mb-6">
+                            <div class="w-16 h-16 bg-gradient-to-br from-green-100 to-green-200 rounded-full flex items-center justify-center mx-auto mb-4 shadow-md">
+                                <i class="fas fa-handshake text-green-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-2">Verkooptechnieken</h3>
+                            <p class="text-gray-600">Bewezen methodes voor meer verkoop</p>
+                        </div>
+                        
+                        <div class="flex-1 mb-6">
+                            <div class="bg-gradient-to-r from-green-50 to-emerald-50 p-6 rounded-xl mb-4">
+                                <h4 class="font-bold text-gray-900 mb-2">SPIN Selling Methode</h4>
+                                <p class="text-gray-600 text-sm mb-3">Leer de krachtige vraagstelling techniek die je helpt om complexe verkopen succesvol af te sluiten.</p>
+                                <div class="flex items-center text-xs text-green-600">
+                                    <i class="fas fa-chart-line mr-1"></i>
+                                    <span class="mr-3">+40% conversie</span>
+                                    <i class="fas fa-users mr-1"></i>
+                                    <span>B2B Focus</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <a href="/verkoop" class="inline-flex items-center px-6 py-3 border-2 border-green-300 text-green-700 font-semibold rounded-full hover:bg-green-50 hover-scale transition-all text-center justify-center">
+                            <i class="fas fa-chart-line mr-2"></i>
+                            Bekijk alle verkoopartikelen
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Business Management Column -->
+                <div class="animate-fade-in" style="animation-delay: 0.2s;">
+                    <div class="enhanced-card p-8 h-full flex flex-col">
+                        <div class="text-center mb-6">
+                            <div class="w-16 h-16 bg-gradient-to-br from-purple-100 to-purple-200 rounded-full flex items-center justify-center mx-auto mb-4 shadow-md">
+                                <i class="fas fa-building text-purple-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-2">Bedrijfsvoering</h3>
+                            <p class="text-gray-600">Strategieën voor efficiënt management</p>
+                        </div>
+                        
+                        <div class="flex-1 mb-6">
+                            <div class="bg-gradient-to-r from-purple-50 to-indigo-50 p-6 rounded-xl mb-4">
+                                <h4 class="font-bold text-gray-900 mb-2">Lean Management Principes</h4>
+                                <p class="text-gray-600 text-sm mb-3">Ontdek hoe je verspilling elimineert en efficiëntie maximaliseert met bewezen lean methodieken.</p>
+                                <div class="flex items-center text-xs text-purple-600">
+                                    <i class="fas fa-cogs mr-1"></i>
+                                    <span class="mr-3">Efficiency</span>
+                                    <i class="fas fa-trending-up mr-1"></i>
+                                    <span>Growth</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <a href="/bedrijfsvoeren" class="inline-flex items-center px-6 py-3 border-2 border-purple-300 text-purple-700 font-semibold rounded-full hover:bg-purple-50 hover-scale transition-all text-center justify-center">
+                            <i class="fas fa-building mr-2"></i>
+                            Bekijk alle bedrijfsartikelen
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced About Us -->
+    <section id="over-ons" class="py-24 bg-gray-50 relative">
+        <!-- Enhanced Shape Overlays -->
+        <div class="shape-overlay shape-blob bottom-40 right-20" style="width: 320px; height: 320px;"></div>
+        <div class="shape-overlay shape-circle top-20 left-40" style="width: 180px; height: 180px;"></div>
+        <div class="shape-overlay shape-diamond bottom-20 left-60" style="width: 90px; height: 90px;"></div>
+        <div class="shape-overlay shape-star top-60 right-60" style="width: 110px; height: 110px;"></div>
+        <div class="shape-overlay shape-triangle bottom-40 left-40" style="width: 95px; height: 95px;"></div>
+        <div class="shape-overlay shape-geo top-20 right-40" style="width: 140px; height: 140px;"></div>
+        <div class="shape-overlay shape-hexagon bottom-80 right-80" style="width: 120px; height: 120px;"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+                <div class="mb-12 lg:mb-0 animate-fade-in">
+                    <div class="relative animate-subtle-float">
+                        <!-- Enhanced Photo Container -->
+                        <div class="relative about-card overflow-hidden">
+                            <div class="h-96 bg-gradient-to-br from-indigo-400 via-purple-500 to-pink-500 relative">
+                                <div class="absolute inset-0 bg-black bg-opacity-10"></div>
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <div class="text-center text-white">
+                                        <div class="w-32 h-32 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4 backdrop-blur-sm">
+                                            <i class="fas fa-user-tie text-6xl"></i>
+                                        </div>
+                                        <h3 class="text-2xl font-bold mb-2">Jens Van den Eeckhout</h3>
+                                        <p class="opacity-90">Oprichter & SEO Expert</p>
+                                        <div class="flex justify-center space-x-4 mt-4">
+                                            <div class="bg-white bg-opacity-20 px-3 py-1 rounded-full text-sm">5+ jaar ervaring</div>
+                                            <div class="bg-white bg-opacity-20 px-3 py-1 rounded-full text-sm">500+ projecten</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Enhanced Stats Overlay -->
+                                <div class="absolute bottom-4 left-4 right-4 bg-white bg-opacity-95 backdrop-blur-sm rounded-xl p-4 shadow-lg">
+                                    <div class="grid grid-cols-3 gap-4 text-center">
+                                        <div>
+                                            <div class="text-2xl font-bold text-indigo-600">98%</div>
+                                            <div class="text-xs text-gray-600">Tevredenheid</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-2xl font-bold text-green-600">24/7</div>
+                                            <div class="text-xs text-gray-600">Support</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-2xl font-bold text-purple-600">5★</div>
+                                            <div class="text-xs text-gray-600">Reviews</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Enhanced Floating Elements -->
+                        <div class="absolute -top-6 -right-6 bg-gradient-to-br from-yellow-400 to-orange-500 w-16 h-16 rounded-full flex items-center justify-center text-white shadow-xl animate-gentle-pulse">
+                            <i class="fas fa-award text-xl"></i>
+                        </div>
+                        <div class="absolute -bottom-6 -left-6 bg-gradient-to-br from-green-400 to-teal-500 w-14 h-14 rounded-full flex items-center justify-center text-white shadow-xl animate-subtle-float">
+                            <i class="fas fa-rocket text-lg"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="animate-fade-in" style="animation-delay: 0.2s;">
+                    <div class="section-title justify-start">
+                        <div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center shadow-xl">
+                            <i class="fas fa-users text-white text-2xl"></i>
+                        </div>
+                        <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 handwriting">Over Ons</h2>
+                    </div>
+                    
+                    <div class="mt-8 space-y-6">
+                        <p class="text-xl text-gray-600 leading-relaxed">
+                            Bij Jitware maken we jouw online succes mogelijk. Sinds 2021 combineren we creativiteit met data-gedreven strategieën om jouw doelen niet alleen te bereiken, maar te overtreffen.
+                        </p>
+                        <p class="text-lg text-gray-600 leading-relaxed">
+                            Met transparantie en samenwerking als kern, zijn we jouw betrouwbare partner in digitale groei en transformatie.
+                        </p>
+                        
+                        <!-- Enhanced Value Propositions -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+                            <div class="enhanced-card p-4 flex items-center">
+                                <div class="w-12 h-12 bg-gradient-to-br from-blue-100 to-blue-200 rounded-lg flex items-center justify-center mr-4">
+                                    <i class="fas fa-eye text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900">Transparantie</h4>
+                                    <p class="text-sm text-gray-600">Volledige openheid in proces</p>
+                                </div>
+                            </div>
+                            <div class="enhanced-card p-4 flex items-center">
+                                <div class="w-12 h-12 bg-gradient-to-br from-green-100 to-green-200 rounded-lg flex items-center justify-center mr-4">
+                                    <i class="fas fa-chart-line text-green-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900">Resultaatgericht</h4>
+                                    <p class="text-sm text-gray-600">Meetbare groei & ROI</p>
+                                </div>
+                            </div>
+                            <div class="enhanced-card p-4 flex items-center">
+                                <div class="w-12 h-12 bg-gradient-to-br from-purple-100 to-purple-200 rounded-lg flex items-center justify-center mr-4">
+                                    <i class="fas fa-users text-purple-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900">Partnerschap</h4>
+                                    <p class="text-sm text-gray-600">Langdurige samenwerking</p>
+                                </div>
+                            </div>
+                            <div class="enhanced-card p-4 flex items-center">
+                                <div class="w-12 h-12 bg-gradient-to-br from-orange-100 to-orange-200 rounded-lg flex items-center justify-center mr-4">
+                                    <i class="fas fa-lightbulb text-orange-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900">Innovatie</h4>
+                                    <p class="text-sm text-gray-600">Cutting-edge technologie</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Enhanced CTA Buttons -->
+                        <div class="flex flex-col sm:flex-row gap-6 pt-8">
+                            <a href="#contact" class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-10 py-4 rounded-full font-semibold text-center hover:from-indigo-700 hover:to-purple-700 transition hover-scale shadow-lg animate-gentle-pulse flex items-center justify-center">
+                                <i class="fas fa-handshake mr-3"></i>
+                                Start Samenwerking
+                            </a>
+                            <a href="#cases" class="bg-white border-2 border-gray-300 text-gray-700 px-10 py-4 rounded-full font-semibold text-center hover:bg-gray-50 hover:border-indigo-300 transition hover-scale shadow-md animate-subtle-float flex items-center justify-center">
+                                <i class="fas fa-trophy mr-3"></i>
+                                Bekijk Resultaten
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Contact Section -->
+    <section id="contact" class="py-24 bg-gradient-to-r from-indigo-600 to-purple-600 text-white relative">
+        <!-- Enhanced Shape Overlays -->
+        <div class="shape-overlay shape-blob top-40 left-20" style="width: 280px; height: 280px;"></div>
+        <div class="shape-overlay shape-geo bottom-20 right-20" style="width: 200px; height: 200px;"></div>
+        <div class="shape-overlay shape-star top-60 right-60" style="width: 100px; height: 100px;"></div>
+        <div class="shape-overlay shape-triangle bottom-40 left-40" style="width: 90px; height: 90px;"></div>
+        <div class="shape-overlay shape-circle top-20 left-60" style="width: 160px; height: 160px;"></div>
+        <div class="shape-overlay shape-diamond bottom-60 right-60" style="width: 80px; height: 80px;"></div>
+        <div class="shape-overlay shape-hexagon top-80 right-80" style="width: 130px; height: 130px;"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 animate-fade-in">
+                <div class="section-title">
+                    <div class="w-16 h-16 bg-white bg-opacity-20 backdrop-blur-sm rounded-full flex items-center justify-center shadow-xl">
+                        <i class="fas fa-paper-plane text-white text-2xl"></i>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-extrabold handwriting text-white">Klaar voor Groei?</h2>
+                </div>
+                <p class="text-xl opacity-90 max-w-3xl mx-auto mt-4">Laten we samen jouw succesverhaal schrijven en jouw bedrijf naar nieuwe hoogten brengen.</p>
+            </div>
+            
+            <div class="max-w-6xl mx-auto">
+                <div class="form-enhanced relative overflow-hidden">
+                    <div class="lg:grid lg:grid-cols-2">
+                        <!-- Enhanced Form Section -->
+                        <div class="p-8 lg:p-12 text-gray-900">
+                            <div class="mb-8">
+                                <h3 class="text-2xl font-bold text-gray-900 mb-4">Start je digitale transformatie</h3>
+                                <p class="text-gray-600">Vertel ons over je project en ontvang binnen 24 uur een persoonlijke strategie.</p>
+                            </div>
+                            
+                            <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
+                                <input type="hidden" name="access_key" value="988965d3-e66c-4e18-8668-aadc7e44652e" />
+                                <input type="hidden" name="subject" value="Jitware homepagina contact" />
+                                <input type="hidden" name="from_name" value="Jitware" />
+                                <input type="hidden" name="redirect" value="https://jitware.be/bedankt.html" />
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div>
+                                        <label for="name" class="form-label">
+                                            <div class="form-label-icon">
+                                                <i class="fas fa-user"></i>
+                                            </div>
+                                            Volledige naam *
+                                        </label>
+                                        <input type="text" name="name" id="name" class="form-input w-full" placeholder="Bijv. Jan Janssens" required>
+                                    </div>
+                                    <div>
+                                        <label for="email" class="form-label">
+                                            <div class="form-label-icon">
+                                                <i class="fas fa-envelope"></i>
+                                            </div>
+                                            Email adres *
+                                        </label>
+                                        <input type="email" id="email" name="email" class="form-input w-full" placeholder="jan@bedrijf.be" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div>
+                                        <label for="phone" class="form-label">
+                                            <div class="form-label-icon">
+                                                <i class="fas fa-phone"></i>
+                                            </div>
+                                            Telefoonnummer
+                                        </label>
+                                        <input type="tel" name="phone" id="phone" class="form-input w-full" placeholder="+32 123 45 67 89">
+                                    </div>
+                                    <div>
+                                        <label for="company" class="form-label">
+                                            <div class="form-label-icon">
+                                                <i class="fas fa-building"></i>
+                                            </div>
+                                            Bedrijfsnaam
+                                        </label>
+                                        <input type="text" name="company" id="company" class="form-input w-full" placeholder="Jouw Bedrijf BV">
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <label for="service" class="form-label">
+                                        <div class="form-label-icon">
+                                            <i class="fas fa-cogs"></i>
+                                        </div>
+                                        Interesse in *
+                                    </label>
+                                    <select name="service" id="service" class="form-input w-full" required>
+                                        <option value="">Selecteer een service</option>
+                                        <option value="SEO & Webdesign">SEO & Webdesign</option>
+                                        <option value="Video & Grafisch Ontwerp">Video & Grafisch Ontwerp</option>
+                                        <option value="AI-Oplossingen">AI-Oplossingen</option>
+                                        <option value="Volledige Digital Strategy">Volledige Digital Strategy</option>
+                                        <option value="Anders">Anders</option>
+                                    </select>
+                                </div>
+                                
+                                <div>
+                                    <label for="message" class="form-label">
+                                        <div class="form-label-icon">
+                                            <i class="fas fa-comment"></i>
+                                        </div>
+                                        Vertel ons over je project *
+                                    </label>
+                                    <textarea id="message" name="message" rows="4" class="form-input w-full resize-none" placeholder="Beschrijf je huidige uitdagingen en doelen..." required></textarea>
+                                </div>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4">
+                                    <button type="submit" class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-4 rounded-full font-semibold hover:from-indigo-700 hover:to-purple-700 transition hover-scale shadow-lg animate-gentle-pulse flex items-center justify-center">
+                                        <i class="fas fa-calendar-alt mr-3"></i>
+                                        Gratis Strategiegesprek
+                                    </button>
+                                    <button type="submit" class="bg-white border-2 border-indigo-300 text-indigo-700 px-8 py-4 rounded-full font-semibold hover:bg-indigo-50 hover:border-indigo-400 transition hover-scale shadow-md animate-subtle-float flex items-center justify-center">
+                                        <i class="fas fa-file-invoice mr-3"></i>
+                                        Vraag Offerte Aan
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <!-- Enhanced Contact Info Section -->
+                        <div class="bg-gradient-to-br from-indigo-700 to-purple-700 p-8 lg:p-12 relative overflow-hidden">
+                            <!-- Decorative Elements -->
+                            <div class="absolute top-10 right-10 w-20 h-20 bg-white bg-opacity-10 rounded-full"></div>
+                            <div class="absolute bottom-10 left-10 w-16 h-16 bg-white bg-opacity-5 rounded-full"></div>
+                            
+                            <div class="relative z-10">
+                                <h3 class="text-2xl font-bold mb-6 handwriting text-white">Neem Direct Contact Op</h3>
+                                <p class="text-indigo-100 mb-8">We staan klaar om je te helpen met al je digitale uitdagingen.</p>
+                                
+                                <div class="space-y-6 mb-10">
+                                    <div class="flex items-start animate-subtle-float">
+                                        <div class="flex-shrink-0 bg-white bg-opacity-20 backdrop-blur-sm rounded-xl p-4 mr-6 shadow-lg">
+                                            <i class="fas fa-map-marker-alt text-white text-xl"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold mb-2 text-white">Ons Kantoor</h4>
+                                            <p class="text-indigo-100">Prinsdaal 63<br>9420 Erpe-Mere, België</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start animate-subtle-float" style="animation-delay: 0.1s;">
+                                        <div class="flex-shrink-0 bg-white bg-opacity-20 backdrop-blur-sm rounded-xl p-4 mr-6 shadow-lg">
+                                            <i class="fas fa-envelope text-white text-xl"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold mb-2 text-white">Email Ons</h4>
+                                            <p class="text-indigo-100">info@jitware.be<br>Reactie binnen 2 uur</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start animate-subtle-float" style="animation-delay: 0.2s;">
+                                        <div class="flex-shrink-0 bg-white bg-opacity-20 backdrop-blur-sm rounded-xl p-4 mr-6 shadow-lg">
+                                            <i class="fas fa-phone-alt text-white text-xl"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold mb-2 text-white">Bel Direct</h4>
+                                            <p class="text-indigo-100">04 72 85 49 46<br>Ma-Vr: 9:00 - 18:00</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Enhanced Social Media -->
+                                <div>
+                                    <h4 class="font-bold mb-6 handwriting text-white text-lg">Volg Onze Journey</h4>
+                                    <div class="flex space-x-4">
+                                        <a href="https://www.linkedin.com/in/jensvandeneeckhout/" class="bg-white bg-opacity-20 backdrop-blur-sm w-14 h-14 rounded-xl flex items-center justify-center hover:bg-opacity-30 transition hover-scale animate-gentle-pulse shadow-lg">
+                                            <i class="fab fa-linkedin-in text-white text-xl"></i>
+                                        </a>
+                                        <a href="www.instagram.com/jitware" class="bg-white bg-opacity-20 backdrop-blur-sm w-14 h-14 rounded-xl flex items-center justify-center hover:bg-opacity-30 transition hover-scale animate-gentle-pulse shadow-lg">
+                                            <i class="fab fa-instagram text-white text-xl"></i>
+                                        </a>
+                                        <a href="https://www.youtube.com/@Jitware_inc" class="bg-white bg-opacity-20 backdrop-blur-sm w-14 h-14 rounded-xl flex items-center justify-center hover:bg-opacity-30 transition hover-scale animate-gentle-pulse shadow-lg">
+                                            <i class="fab fa-youtube text-white text-xl"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Footer -->
+    <footer class="bg-gray-900 text-white py-16 relative overflow-hidden">
+        <!-- Footer Shape Overlays -->
+        <div class="shape-overlay shape-blob top-10 right-10" style="width: 200px; height: 200px; opacity: 0.03;"></div>
+        <div class="shape-overlay shape-circle bottom-10 left-10" style="width: 150px; height: 150px; opacity: 0.03;"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center mb-6">
+                        <span class="text-3xl font-extrabold logo-enhanced handwriting">
+                            <i class="fas fa-code mr-2 text-xl"></i>
+                            Jitware
+                        </span>
+                    </div>
+                    <p class="text-gray-400 mb-6 max-w-md">
+                        Jouw partner in digitale excellentie. We transformeren bedrijven met cutting-edge webdesign, SEO en AI-oplossingen.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.linkedin.com/in/jensvandeneeckhout/" class="bg-gray-800 w-10 h-10 rounded-full flex items-center justify-center hover:bg-indigo-600 transition">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="www.instagram.com/jitware" class="bg-gray-800 w-10 h-10 rounded-full flex items-center justify-center hover:bg-pink-600 transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@Jitware_inc" class="bg-gray-800 w-10 h-10 rounded-full flex items-center justify-center hover:bg-red-600 transition">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Services</h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="#diensten" class="hover:text-white transition">SEO & Webdesign</a></li>
+                        <li><a href="#diensten" class="hover:text-white transition">Video & Design</a></li>
+                        <li><a href="#diensten" class="hover:text-white transition">AI-Oplossingen</a></li>
+                        <li><a href="/tools" class="hover:text-white transition">Gratis Tools</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Company</h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="#over-ons" class="hover:text-white transition">Over Ons</a></li>
+                        <li><a href="#cases" class="hover:text-white transition">Portfolio</a></li>
+                        <li><a href="/blog" class="hover:text-white transition">Blog</a></li>
+                        <li><a href="#contact" class="hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 text-sm">&copy; 2024 Jitware. Alle rechten voorbehouden.</p>
+                    <div class="flex space-x-6 mt-4 md:mt-0">
+                        <a href="/privacy" class="text-gray-400 hover:text-white transition text-sm">Privacy Policy</a>
+                        <a href="/terms" class="text-gray-400 hover:text-white transition text-sm">Terms of Service</a>
+                        <a href="/sitemap" class="text-gray-400 hover:text-white transition text-sm">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function () {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                    // Close mobile menu if open
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                }
+            });
+        });
+
+        // Enhanced count-up animation
+        function countUp(element, target, suffix = '', duration = 2000) {
+            let current = 0;
+            const increment = target / (duration / 16);
+            const interval = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(interval);
+                }
+                element.textContent = `${Math.round(current)}${suffix}`;
+            }, 16);
+        }
+
+        function handleScrollAnimations() {
+            const elements = document.querySelectorAll('.count-up');
+            elements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight * 0.8 && !el.classList.contains('visible')) {
+                    el.classList.add('visible');
+                    const numberEl = el.querySelector('.count-up-number');
+                    const target = parseInt(numberEl.dataset.target);
+                    const suffix = numberEl.textContent.includes('%') ? '%' : '';
+                    countUp(numberEl, target, suffix);
+                }
+            });
+
+            // Animate fade-in elements
+            const fadeElements = document.querySelectorAll('.animate-fade-in');
+            fadeElements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight * 0.9) {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }
+            });
+        }
+
+        window.addEventListener('scroll', handleScrollAnimations);
+        handleScrollAnimations(); // Initial check
+
+        // Enhanced testimonial slider
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initialize SwiperJS with enhanced settings
+            const testimonialSwiper = new Swiper('.testimonial-swiper', {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                centeredSlides: true,
+                loop: true,
+                autoplay: {
+                    delay: 7000,
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: true,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                    dynamicBullets: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                breakpoints: {
+                    640: {
+                        slidesPerView: 1.2,
+                        spaceBetween: 20,
+                    },
+                    768: {
+                        slidesPerView: 1.3,
+                        spaceBetween: 30,
+                    },
+                    1024: {
+                        slidesPerView: 1.2,
+                        spaceBetween: 40,
+                    },
+                },
+                effect: 'coverflow',
+                coverflowEffect: {
+                    rotate: 0,
+                    stretch: 0,
+                    depth: 100,
+                    modifier: 1,
+                    slideShadows: true,
+                },
+                on: {
+                    init: function () {
+                        console.log('Enhanced testimonial swiper initialized');
+                    },
+                    slideChange: function () {
+                        // Add subtle animation on slide change
+                        const activeSlide = this.slides[this.activeIndex];
+                        if (activeSlide) {
+                            activeSlide.style.transform += ' scale(1.02)';
+                            setTimeout(() => {
+                                activeSlide.style.transform = activeSlide.style.transform.replace(' scale(1.02)', '');
+                            }, 300);
+                        }
+                    },
+                },
+            });
+
+            // Enhanced hover effects
+            const swiperContainer = document.querySelector('.testimonial-swiper');
+            if (swiperContainer) {
+                swiperContainer.addEventListener('mouseenter', () => {
+                    testimonialSwiper.autoplay.stop();
+                });
+
+                swiperContainer.addEventListener('mouseleave', () => {
+                    testimonialSwiper.autoplay.start();
+                });
+            }
+        });
+
+        // Enhanced AI prompt functionality
+        function copyPrompt() {
+            const promptContent = document.getElementById('prompt-inhoud').textContent;
+            navigator.clipboard.writeText(promptContent).then(() => {
+                const copyBtn = document.querySelector('[onclick="copyPrompt()"]');
+                const originalContent = copyBtn.innerHTML;
+                copyBtn.innerHTML = '<i class="fas fa-check text-green-400 mr-2"></i><span class="text-sm">GEKOPIEERD!</span>';
+                copyBtn.style.background = 'rgba(34, 197, 94, 0.2)';
+                copyBtn.style.borderColor = 'rgba(34, 197, 94, 0.3)';
+                
+                setTimeout(() => {
+                    copyBtn.innerHTML = originalContent;
+                    copyBtn.style.background = '';
+                    copyBtn.style.borderColor = '';
+                }, 2500);
+            }).catch(() => {
+                // Fallback for browsers that don't support clipboard API
+                const textArea = document.createElement('textarea');
+                textArea.value = promptContent;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                
+                const copyBtn = document.querySelector('[onclick="copyPrompt()"]');
+                copyBtn.innerHTML = '<i class="fas fa-check text-green-400 mr-2"></i><span class="text-sm">GEKOPIEERD!</span>';
+                setTimeout(() => {
+                    copyBtn.innerHTML = '<i class="far fa-copy mr-2"></i><span class="text-sm">COPY</span>';
+                }, 2000);
+            });
+        }
+
+        // Enhanced form validation
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('form');
+            const inputs = form.querySelectorAll('input, textarea, select');
+            
+            inputs.forEach(input => {
+                input.addEventListener('focus', function() {
+                    this.parentElement.classList.add('focused');
+                });
+                
+                input.addEventListener('blur', function() {
+                    if (!this.value) {
+                        this.parentElement.classList.remove('focused');
+                    }
+                    // Real-time validation
+                    if (this.required && !this.value) {
+                        this.style.borderColor = '#ef4444';
+                    } else {
+                        this.style.borderColor = '';
+                    }
+                });
+                
+                input.addEventListener('input', function() {
+                    if (this.required && this.value) {
+                        this.style.borderColor = '#10b981';
+                    }
+                });
+            });
+            
+            form.addEventListener('submit', function(e) {
+                let isValid = true;
+                inputs.forEach(input => {
+                    if (input.required && !input.value) {
+                        input.style.borderColor = '#ef4444';
+                        input.style.boxShadow = '0 0 0 3px rgba(239, 68, 68, 0.1)';
+                        isValid = false;
+                    }
+                });
+                
+                if (!isValid) {
+                    e.preventDefault();
+                    // Scroll to first invalid field
+                    const firstInvalid = form.querySelector('input[style*="border-color: rgb(239, 68, 68)"]');
+                    if (firstInvalid) {
+                        firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        firstInvalid.focus();
+                    }
+                }
+            });
+        });
+
+        // Enhanced parallax effects for shapes
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const shapes = document.querySelectorAll('.shape-overlay');
+            
+            shapes.forEach((shape, index) => {
+                const speed = 0.5 + (index % 3) * 0.2;
+                const yPos = -(scrolled * speed);
+                shape.style.transform = `translateY(${yPos}px)`;
+            });
+        });
+
+        // Enhanced intersection observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.enhanced-card, .testimonial-card, .service-card').forEach(card => {
+            observer.observe(card);
+        });
+
+        // Enhanced loading states
+        window.addEventListener('load', function() {
+            document.body.classList.add('loaded');
+            
+            // Stagger animation of elements
+            const elements = document.querySelectorAll('.animate-fade-in');
+            elements.forEach((el, index) => {
+                setTimeout(() => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+
+        // Enhanced mobile menu animations
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', function() {
+            const icon = this.querySelector('i');
+            if (mobileMenu.classList.contains('hidden')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+                mobileMenu.style.maxHeight = '500px';
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+                mobileMenu.style.maxHeight = '0px';
+            }
+        });
+
+        // Enhanced scroll-to-top functionality
+        const scrollToTop = document.createElement('button');
+        scrollToTop.innerHTML = '<i class="fas fa-arrow-up"></i>';
+        scrollToTop.className = 'fixed bottom-8 right-8 w-12 h-12 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-50 opacity-0 pointer-events-none hover-scale';
+        scrollToTop.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+        document.body.appendChild(scrollToTop);
+
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                scrollToTop.style.opacity = '1';
+                scrollToTop.style.pointerEvents = 'auto';
+            } else {
+                scrollToTop.style.opacity = '0';
+                scrollToTop.style.pointerEvents = 'none';
+            }
+        });
+
+        // Loading animation for the page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add loading overlay
+            const loadingOverlay = document.createElement('div');
+            loadingOverlay.className = 'fixed inset-0 bg-white z-50 flex items-center justify-center';
+            loadingOverlay.innerHTML = `
+                <div class="text-center">
+                    <div class="w-16 h-16 border-4 border-indigo-200 border-t-indigo-600 rounded-full animate-spin mb-4"></div>
+                    <p class="text-gray-600">Laden van digitale excellentie...</p>
+                </div>
+            `;
+            document.body.appendChild(loadingOverlay);
+
+            // Remove loading overlay after page load
+            window.addEventListener('load', function() {
+                setTimeout(() => {
+                    loadingOverlay.style.opacity = '0';
+                    setTimeout(() => {
+                        loadingOverlay.remove();
+                    }, 300);
+                }, 800);
+            });
+        });
+
+        console.log('🚀 Enhanced Jitware website loaded successfully!');
+        console.log('💎 Features: Enhanced animations, improved responsive design, advanced interactions');
+    </script>
+</body>
+</html>
